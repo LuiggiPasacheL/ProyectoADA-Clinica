@@ -1,37 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author luigg
- */
 public abstract class Persona {
-    private String codigo;
-    private String nombre;
-    private String apellidoP;
-    private String apellidoM;
-    private String dni;
-    private char sexo;
-    private String celular;
-    private String correo;
-    boolean estado;
+    enum Sexo{
+        MASCULINO("M"), FEMENINO("F");
+        Sexo(String sexo) {
+            this.sexo = sexo;
+        }
+        private String sexo;
+    };
 
-    public Persona(String codigo, String nombre, String apellidoP, String apellidoM, String dni, char sexo, String celular, String correo, boolean estado) {
+    String codigo;
+    String nombre;
+    String apellidoP;
+    String apellidoM;
+    Sexo sexo;
+    String correo;
+    Documento documento;
+
+    public Persona(String codigo, String nombre, String apellidoP, String apellidoM,
+                   String sexo, String correo, int numero, String tipo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellidoP = apellidoP;
         this.apellidoM = apellidoM;
-        this.dni = dni;
-        this.sexo = sexo;
-        this.celular = celular;
+        this.sexo = Sexo.valueOf(sexo);
         this.correo = correo;
-        this.estado = estado;
+        this.documento = new Documento(numero,tipo);
     }
-    
+
     public String getCodigo() {
         return codigo;
     }
@@ -64,28 +60,12 @@ public abstract class Persona {
         this.apellidoM = apellidoM;
     }
 
-    public String getDni() {
-        return dni;
+    public String getSexo() {
+        return sexo.toString();
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public char getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setSexo(String sexo) {
+        this.sexo = Sexo.valueOf(sexo);
     }
 
     public String getCorreo() {
@@ -96,14 +76,11 @@ public abstract class Persona {
         this.correo = correo;
     }
 
-    public boolean isEstado() {
-        return estado;
+    public Documento getDocumento() {
+        return documento;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+    public void setDocumento(Documento documento) {
+        this.documento = documento;
     }
-    
-   
-    
 }

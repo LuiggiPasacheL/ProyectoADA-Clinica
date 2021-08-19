@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+import controlador.ControladorEjemplo;
+import vista.FrmLogin;
+
 /**
  *
  * @author luigg
@@ -14,7 +17,11 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("hola mundo");
+        //aca se combinan controlador vista y modelo
+        FrmLogin vista = new FrmLogin();
+        String modelo = "ejemplo";
+        ControladorEjemplo controlador = new ControladorEjemplo(modelo, vista);
+        controlador.iniciar();
     }
     
 }

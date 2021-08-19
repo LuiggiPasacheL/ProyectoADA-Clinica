@@ -1,33 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author luigg
- */
-public class Paciente extends Persona {
+public class Paciente extends Persona{
+    float pago;
+    String direccion;
+    String celular;
+    String fechaVacunacion;
+    boolean vacunado;
 
-    private int dosis = 0;
-    private Cita[] citas; 
-    private Vacuna[] vacunas;
-
-    public Paciente(int dosis, String codigo, String nombre, String apellidoP,
-            String apellidoM, String dni, char sexo, String celular,
-            String correo, boolean estado) {
-        super(codigo, nombre, apellidoP, apellidoM, dni, sexo, celular, correo, estado);
-        this.dosis = dosis;
+    public Paciente(String codigo, String nombre, String apellidoP, String apellidoM,
+                    String sexo, String correo, int numero, String tipo, float pago,
+                    String direccion, String celular, String fechaVacunacion, boolean vacunado) {
+        super(codigo, nombre, apellidoP, apellidoM, sexo, correo, numero, tipo);
+        this.pago = pago;
+        this.direccion = direccion;
+        this.celular = celular;
+        this.fechaVacunacion = fechaVacunacion;
+        this.vacunado = vacunado;
     }
-
-    public Paciente(String codigo, String nombre, String apellidoP,
-            String apellidoM, String dni, char sexo, String celular,
-            String correo, boolean estado) {
-        super(codigo, nombre, apellidoP, apellidoM, dni, sexo, celular, correo, estado);
-    }
-
-    
-    
 }
