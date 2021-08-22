@@ -5,23 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="313665bb-00bd-4df8-ab05-8e1ab8963115" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controlador/ControladorEjemplo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Administrador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Clinica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Documento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProyectoADA-Clinica.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoADA-Clinica.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controlador/ControladorLogin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Cita.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Empleado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Enfermero.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Medico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Vacuna.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vista/login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/FrmReservaCita.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/FrmReservaCita.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +53,7 @@
       <recent name="C:\Users\luigg\Desktop\ProyectoADA-Clinica\src\controlador" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.FrmReservaCita">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="ProyectoADA-Clinica" />
@@ -101,8 +89,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
         <item itemvalue="Application.FrmReservaCita" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.FrmAdministrador" />
       </list>
     </recent_temporary>
