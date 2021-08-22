@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="313665bb-00bd-4df8-ab05-8e1ab8963115" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoADA-Clinica.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoADA-Clinica.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vista/FrmReservaCita.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vista/FrmReservaCita.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +49,7 @@
       <recent name="C:\Users\luigg\Desktop\ProyectoADA-Clinica\src\controlador" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FrmReservaCita">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="ProyectoADA-Clinica" />
@@ -89,8 +85,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FrmReservaCita" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.FrmReservaCita" />
         <item itemvalue="Application.FrmAdministrador" />
       </list>
     </recent_temporary>

@@ -52,4 +52,22 @@ public class Usuario extends Persona {
                 this.contrasena.equals(usuarioAValidar.contrasena);
     }
 
+    public boolean validarDatos(String username, String contrasena){
+        if(this.isConectado()){
+            return false;
+        }
+
+        return this.username.equals(username) &&
+            this.contrasena.equals(contrasena);
+    }
+
+    public boolean ingresarSesion(String username, String contrasena){
+        if(this.isConectado()){
+            return false;
+        }
+
+        return this.username.equals(username) &&
+            this.contrasena.equals(contrasena);
+    }
+
 }
