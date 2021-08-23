@@ -61,13 +61,13 @@ public class Usuario extends Persona {
             this.contrasena.equals(contrasena);
     }
 
-    public boolean ingresarSesion(String username, String contrasena){
-        if(this.isConectado()){
+    public boolean ingresarSesion(String username, String contrasena) {
+        if (this.isConectado()) {
             return false;
         }
 
         return this.username.equals(username) &&
-            this.contrasena.equals(contrasena);
+                this.contrasena.equals(contrasena);
     }
 
 }
