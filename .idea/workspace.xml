@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="313665bb-00bd-4df8-ab05-8e1ab8963115" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/general/Datos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/ClinicaArreglo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/UsuarioArreglo.java" afterDir="false" />
+    <list default="true" id="313665bb-00bd-4df8-ab05-8e1ab8963115" name="Changes" comment="agregando busqueda para iniciar sesion en el arreglo de usuarios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/general/Datos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Datos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sistema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/UsuarioArreglo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/UsuarioArreglo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,5 +116,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="agregando busqueda para iniciar sesion en el arreglo de usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="agregando busqueda para iniciar sesion en el arreglo de usuarios" />
   </component>
 </project>

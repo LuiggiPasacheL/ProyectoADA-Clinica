@@ -40,16 +40,10 @@ public class Usuario extends Persona {
         this.conectado = true;
     }
 
-    public void salir(){
-        this.conectado = false;
-    }
+    public void salir(){ this.conectado = false; }
 
-    public boolean validarDatos(Usuario usuarioAValidar){
-        if(usuarioAValidar.isConectado())
-            return false;
-
-        return this.username.equals(usuarioAValidar.username) &&
-                this.contrasena.equals(usuarioAValidar.contrasena);
+    public boolean esUsername(String username){
+        return this.username.equals(username);
     }
 
     public boolean validarDatos(String username, String contrasena){
@@ -59,15 +53,6 @@ public class Usuario extends Persona {
 
         return this.username.equals(username) &&
             this.contrasena.equals(contrasena);
-    }
-
-    public boolean ingresarSesion(String username, String contrasena) {
-        if (this.isConectado()) {
-            return false;
-        }
-
-        return this.username.equals(username) &&
-                this.contrasena.equals(contrasena);
     }
 
 }
