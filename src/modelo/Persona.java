@@ -1,11 +1,13 @@
 package modelo;
 
 public abstract class Persona {
-    enum Sexo{
-        MASCULINO("M"), FEMENINO("F");
+    enum Sexo {
+        M("M"), F("F");
+
         Sexo(String sexo) {
             this.sexo = sexo;
         }
+
         private String sexo;
     };
 
@@ -16,16 +18,18 @@ public abstract class Persona {
     Sexo sexo;
     String correo;
     Documento documento;
+    String tipo;
+    String numero;
 
     public Persona(String codigo, String nombre, String apellidoP, String apellidoM,
-                   String sexo, String correo, int numero, String tipo) {
+                   String sexo, String correo, String numero, String tipo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellidoP = apellidoP;
         this.apellidoM = apellidoM;
         this.sexo = Sexo.valueOf(sexo);
         this.correo = correo;
-        this.documento = new Documento(numero,tipo);
+        this.documento = new Documento(numero, tipo);
     }
 
     public String getCodigo() {
@@ -83,4 +87,21 @@ public abstract class Persona {
     public void setDocumento(Documento documento) {
         this.documento = documento;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
 }

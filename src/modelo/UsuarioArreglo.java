@@ -5,35 +5,51 @@ public class UsuarioArreglo {
     private Usuario[] usuarios;
     private int valorHash;
     private final int tamano;
+    private int numeroUsuarios;
 
     public UsuarioArreglo(int tamano) {
         this.tamano = tamano;
         usuarios = new Usuario[tamano];
         valorHash = primoMasCercano(tamano);
+        numeroUsuarios = 0;
+    }
+
+    public Usuario[] toArray(){
+        Usuario[] resultado = new Usuario[numeroUsuarios];
+        int j = 0;
+        for (int i = 0; i < usuarios.length; i++) {
+            if(usuarios[i] != null){
+                resultado[j] = usuarios[i];
+                j++;
+            }
+        }
+        return resultado;
     }
 
     public boolean agregar(Usuario usuario) {
         int indice = hash(usuario.getUsername());
         for (int i = 0; i < tamano; i++) {
-            if (usuarios[indice] != null) {
+            if (usuarios[indice] == null) {
                 usuarios[indice] = usuario;
+                numeroUsuarios++;
+                return true;
             }
-            if (indice < tamano) {
+            if (indice < tamano - 1) {
                 indice++;
             } else {
                 indice = 0;
             }
         }
-        return false;
+        return false; //arreglo lleno
     }
 
-    public boolean cerrarSesion(String username){ //o trabajar por referencia al usuario
+    public boolean cerrarSesion(String username) { //o trabajar por referencia al usuario
         int pos = busquedaPruebaLineal(username);
 
-        if(pos != -1){
+        if (pos != -1) {
             usuarios[pos].salir();
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -43,8 +59,7 @@ public class UsuarioArreglo {
 
         int pos = busquedaPruebaLineal(username);
 
-        if (pos != -1 && usuarios[pos].validarDatos(username, contrasena)) {
-            usuarios[pos].ingresar(); //cambio de booleano a false
+        if (pos != -1 && usuarios[pos].ingresar(username, contrasena)) {
             return true;
         }
         return false;
@@ -74,7 +89,7 @@ public class UsuarioArreglo {
     private int hash(String username) {
         int hash = 0;
         for (int i = 0; i < username.length(); i++) {
-            hash += username.charAt(i) - 'a';
+            hash += username.charAt(i);
         }
         hash = hash % valorHash;
         return hash;
@@ -91,12 +106,8 @@ public class UsuarioArreglo {
 
         for (int i = valor; i > 2; i--) {
             valor1--;
-            valor2++;
             if (esPrimo(valor1)) {
                 return valor1;
-            }
-            if (esPrimo(valor2)) {
-                return valor2;
             }
         }
 

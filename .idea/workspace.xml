@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="313665bb-00bd-4df8-ab05-8e1ab8963115" name="Changes" comment="agregando busqueda para iniciar sesion en el arreglo de usuarios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/general/Datos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Datos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoADA-Clinica.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoADA-Clinica.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Clinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Clinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/ClinicaArreglo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Documento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Documento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Medico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Paciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Persona.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/UsuarioArreglo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/UsuarioArreglo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/UsuarioArreglo.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +47,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jcalendar-1.4.jar" />
@@ -52,7 +64,7 @@
       <recent name="C:\Users\luigg\Desktop\ProyectoADA-Clinica\src\controlador" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.UsuarioArreglo">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="ProyectoADA-Clinica" />
@@ -86,8 +98,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UsuarioArreglo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="modelo.UsuarioArreglo" />
+      <module name="ProyectoADA-Clinica" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UsuarioArreglo" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.FrmReservaCita" />
         <item itemvalue="Application.FrmAdministrador" />
@@ -120,5 +146,24 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="agregando busqueda para iniciar sesion en el arreglo de usuarios" />
     <option name="LAST_COMMIT_MESSAGE" value="agregando busqueda para iniciar sesion en el arreglo de usuarios" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="valorHash" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

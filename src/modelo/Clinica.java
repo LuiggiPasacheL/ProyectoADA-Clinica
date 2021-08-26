@@ -11,9 +11,10 @@ public class Clinica {
     int aforo;
     Medico[] medicos; //mejorar
     Paciente[] pacientes;
+    int identificador;
 
     public Clinica(String nombre, String ubicacion, int numPacientes, int numDoctores, int numEnfermeros, int aforo,
-                   int totalMedicos, Paciente[] pacientes) {
+                   int totalMedicos, Paciente[] pacientes, int identificador) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.numPacientes = numPacientes;
@@ -22,6 +23,7 @@ public class Clinica {
         this.aforo = aforo;
         this.medicos = new Medico[totalMedicos];
         this.pacientes = pacientes;
+        this.identificador = identificador;
     }
 
     public String getNombre() {
@@ -70,6 +72,30 @@ public class Clinica {
 
     public void setAforo(int aforo) {
         this.aforo = aforo;
+    }
+
+    public Medico[] getMedicos() {
+        return medicos;
+    }
+
+    public void setMedicos(Medico[] medicos) {
+        this.medicos = medicos;
+    }
+
+    public Paciente[] getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(Paciente[] pacientes) {
+        this.pacientes = pacientes;
+    }
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
     }
 
 }

@@ -4,19 +4,20 @@ public class Documento {
     enum TipoDocumento {
         DNI, pasaporte;
     }
-    int numero;
+
+    String numero;
     TipoDocumento tipo;
 
-    public Documento(int numero, String tipo) {
+    public Documento(String numero, String tipo) {
         this.numero = numero;
         this.tipo = TipoDocumento.valueOf(tipo);
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

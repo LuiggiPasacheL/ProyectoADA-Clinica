@@ -8,12 +8,13 @@ public class Usuario extends Persona {
     boolean conectado;
 
     public Usuario(String codigo, String nombre, String apellidoP, String apellidoM,
-                   String sexo, String correo, int numero, String tipo, String contrasena,
+                   String sexo, String correo, String numero, String tipo, String contrasena,
                    String username, boolean conectado) {
         super(codigo, nombre, apellidoP, apellidoM, sexo, correo, numero, tipo);
         this.contrasena = contrasena;
         this.username = username;
         this.conectado = conectado;
+
     }
 
     public String getContrasena() {
@@ -36,23 +37,32 @@ public class Usuario extends Persona {
         return conectado;
     }
 
-    public void ingresar() {
-        this.conectado = true;
-    }
-
-    public void salir(){ this.conectado = false; }
-
-    public boolean esUsername(String username){
+    public boolean esUsername(String username) {
         return this.username.equals(username);
     }
 
-    public boolean validarDatos(String username, String contrasena){
-        if(this.isConectado()){
+    public boolean ingresar(String username, String password) {
+        if (this.isConectado()) {
             return false;
         }
 
-        return this.username.equals(username) &&
-            this.contrasena.equals(contrasena);
+        boolean result = false;
+
+        if (this.username.equals(username) &&
+                this.contrasena.equals(password)) {
+            this.conectado = Boolean.TRUE;
+            result = true;
+        }
+
+        return result;
+    }
+
+    public boolean salir() {
+        if (this.conectado) {
+            this.conectado = false;
+            return false;
+        }
+        return true;
     }
 
 }

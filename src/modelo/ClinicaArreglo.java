@@ -4,7 +4,7 @@ public class ClinicaArreglo {
     private static Clinica[] clinica;
     private static int indexClinica = 0;
 
-    public ClinicaArreglo(int tamano){
+    public ClinicaArreglo(int tamano) {
         clinica = new Clinica[tamano];
         indexClinica = 0;
     }
