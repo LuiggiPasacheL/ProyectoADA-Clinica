@@ -9,7 +9,7 @@ public abstract class Persona {
         }
 
         private String sexo;
-    };
+    }
 
     String codigo;
     String nombre;

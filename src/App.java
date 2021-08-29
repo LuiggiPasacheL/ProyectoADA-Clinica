@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 
-import controlador.ControladorEjemplo;
 import vista.FrmLogin;
 
 /**
- *
  * @author luigg
  */
 public class App {
@@ -19,9 +17,8 @@ public class App {
     public static void main(String[] args) {
         //aca se combinan controlador vista y modelo
         FrmLogin vista = new FrmLogin();
-        String modelo = "ejemplo";
-        ControladorEjemplo controlador = new ControladorEjemplo(modelo, vista);
-        controlador.iniciar();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
     }
-    
+
 }
