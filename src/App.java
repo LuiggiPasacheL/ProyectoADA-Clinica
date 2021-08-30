@@ -16,6 +16,7 @@ public class App {
      */
     public static void main(String[] args) {
         //aca se combinan controlador vista y modelo
+        //Esto no deberia estar aqui
         FrmLogin vista = new FrmLogin();
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
