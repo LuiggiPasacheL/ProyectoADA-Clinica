@@ -27,45 +27,40 @@ public class FrmAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        btnReserCita = new javax.swing.JButton();
         btnTabla = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnReserCita = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnTabla.setText("Ver Pacientes");
 
-        btnReserCita.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnReserCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reserva1.png"))); // NOI18N
         btnReserCita.setText("Reservar Cita");
-        btnReserCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnReserCita.setContentAreaFilled(false);
-        btnReserCita.setDefaultCapable(false);
-        btnReserCita.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnReserCita.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnReserCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReserCitaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnReserCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 110, 100));
 
-        btnTabla.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Pacientes.png"))); // NOI18N
-        btnTabla.setText("Ver Pacientes");
-        btnTabla.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnTabla.setContentAreaFilled(false);
-        btnTabla.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnTabla.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(btnTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 100, 100));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoAdministrador.jpg.png"))); // NOI18N
-        jLabel1.setEnabled(false);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 330));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 500, 330));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addComponent(btnReserCita, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(btnTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReserCita, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -112,7 +107,5 @@ public class FrmAdministrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReserCita;
     public javax.swing.JButton btnTabla;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
