@@ -50,6 +50,22 @@ public class HashTableClinica {
         return clinicas.agregar(clinica, clinica.getNombre());
     }
 
+    public boolean añadirMedico(int indiceClinica, Medico medico){
+        if(indiceClinica > clinicas.getTamanoMax()){
+            return false;
+        }
+        clinicas.get(indiceClinica).añadirMedico(medico);
+        return true;
+    }
+
+    public boolean añadirPaciente(int indiceClinica, Paciente paciente){
+        if(indiceClinica > clinicas.getTamanoMax()){
+            return false;
+        }
+        clinicas.get(indiceClinica).añadirPaciente(paciente);
+        return true;
+    }
+
     public Clinica[] toArray() {
         Clinica[] clinicas = new Clinica[this.clinicas.getTamanoMax()];
         for (int i = 0; i < this.clinicas.getTamanoMax(); i++) {

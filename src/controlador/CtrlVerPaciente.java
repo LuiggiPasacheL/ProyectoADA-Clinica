@@ -82,7 +82,7 @@ public class CtrlVerPaciente {
     }
     
     private void cargarTabla(){
-        Object[][] matriz =Excel.cargarExcel("C:\\Users\\nick paredes\\Desktop\\Libro1.xlsx");
+        Object[][] matriz = Excel.cargarExcel("Libro1.xlsx");
         this.modelo = new DefaultTableModel(matriz,Datos.columnas){
             @Override
             public boolean isCellEditable(int filas, int columnas) {return false;};

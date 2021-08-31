@@ -14,16 +14,14 @@ import vista.FrmReservaCita;
 
 
 public class CtrlReservaCita {
-     UsuarioArreglo modelo;
      FrmReservaCita vista;
      Documento modelo2 = new Documento();
      Persona modelo3= new Persona();
      // = new Persona();
 
-    public CtrlReservaCita(UsuarioArreglo modelo, FrmReservaCita vista) {
-        this.modelo = modelo;
+    public CtrlReservaCita(FrmReservaCita vista) {
         this.vista = vista;
-        
+
         this.vista.btnLimpiar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {

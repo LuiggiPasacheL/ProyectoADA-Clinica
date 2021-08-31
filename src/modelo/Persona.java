@@ -22,19 +22,19 @@ public  class Persona {
     String correo;
     Documento documento;
     String tipo;
-    String numero;
+    String numeroDoc;
     
 
     public Persona(String codigo, String nombre, String apellidoP, String apellidoM,
-                   String sexo, String correo, String numero, String tipo) throws Exception {
+                   String sexo, String correo, String numeroDoc, String tipo) throws Exception {
         this.codigo = codigo;
         setNombres(nombre);
         setApellidoMaterno(apellidoM);
         setApellidoPaterno(apellidoP);
         this.sexo = Sexo.valueOf(sexo);
         setCorreo(correo);
-        setDni(numero);
-        this.documento = new Documento(numero, tipo);
+        setDni(numeroDoc);
+        this.documento = new Documento(numeroDoc, tipo);
         
     }
     
@@ -86,8 +86,8 @@ public  class Persona {
 
    
 
-    public String getNumero() {
-        return numero;
+    public String getNumeroDoc() {
+        return numeroDoc;
     }
 
   
@@ -102,7 +102,7 @@ public  class Persona {
 
     public void setDni(String numero) throws Exception{
       //  Datos.validarDatos(numero, "[0-9]{8}", "DNI incorrecto");
-        this.numero = numero;
+        this.numeroDoc = numero;
     }
 
 

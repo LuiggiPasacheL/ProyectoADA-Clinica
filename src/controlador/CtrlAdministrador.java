@@ -17,7 +17,6 @@ import vista.FrmTablaDePacientes;
  * @author luigg
  */
 public class CtrlAdministrador {
-    UsuarioArreglo modelo;
     FrmAdministrador vista;
 
     public CtrlAdministrador(FrmAdministrador vista) {
@@ -30,7 +29,7 @@ public class CtrlAdministrador {
               
                 vista.dispose();
                 FrmReservaCita fReservaCita = new FrmReservaCita();
-                CtrlReservaCita cReservaCita = new CtrlReservaCita(modelo , fReservaCita);
+                CtrlReservaCita cReservaCita = new CtrlReservaCita(fReservaCita);
                 cReservaCita.Iniciar();
             }
             

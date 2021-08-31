@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="313665bb-00bd-4df8-ab05-8e1ab8963115" name="Changes" comment="agregando HashTable y modificando HashTableClinica">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controlador/CtrlAdministrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlador/CtrlAdministrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controlador/CtrlReservaCita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlador/CtrlReservaCita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/general/Datos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Datos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Clinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Clinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/HashTableClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/HashTableClinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Medico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Persona.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

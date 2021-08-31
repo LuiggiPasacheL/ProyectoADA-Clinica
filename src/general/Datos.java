@@ -11,12 +11,10 @@ import modelo.Usuario;
 import modelo.UsuarioArreglo;
 
 public class Datos {   
-    //TODO definir valores globales para la aplicacion
     public static Arreglo <Usuario> usuarios = new Arreglo<Usuario>();
     public static String[] columnas = new String[]{"Código","Nombres","Apellidos","Edad","sexo","estado"};
     public static ColaPrioridad colaPrioridad = new ColaPrioridad();
     public static HashTableClinica clinicas = new HashTableClinica(6);
-    
     
     public static void validarDatos(String value, String ReGex, String mensaje) throws Exception{
         Pattern er = Pattern.compile(ReGex);

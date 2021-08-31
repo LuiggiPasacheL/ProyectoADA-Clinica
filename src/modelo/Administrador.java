@@ -9,7 +9,7 @@ public class Administrador extends Usuario {
     }
 
     public Administrador(Usuario u) throws Exception {
-        super(u.getCodigo(), u.getNombre(), u.getApellidoP(), u.getApellidoM(), u.getSexo(), u.getCorreo(), u.getNumero(), u.getTipo()
+        super(u.getCodigo(), u.getNombre(), u.getApellidoP(), u.getApellidoM(), u.getSexo(), u.getCorreo(), u.getNumeroDoc(), u.getTipo()
                 , u.getContrasena(), u.getUsername(), u.isConectado());
     }
 

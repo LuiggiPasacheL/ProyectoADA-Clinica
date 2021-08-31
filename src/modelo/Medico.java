@@ -5,9 +5,9 @@ public class Medico extends Persona {
 
     public Medico(String codigo, String nombre, String apellidoP,
                   String apellidoM, String sexo, String correo,
-                  String numero, String tipo, boolean disponible,String hospital) throws Exception {
-        super(codigo, nombre, apellidoP, apellidoM, sexo, correo, numero, tipo);
-        this.disponible = disponible;
+                  String numeroDoc, String tipo) throws Exception {
+        super(codigo, nombre, apellidoP, apellidoM, sexo, correo, numeroDoc, tipo);
+        this.disponible = true;
     }
     
     public boolean isDisponible() {
@@ -79,12 +79,12 @@ public class Medico extends Persona {
         this.tipo = tipo;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getNumeroDoc() {
+        return numeroDoc;
     }
 
     public void setNumero(String numero) {
-        this.numero = numero;
+        this.numeroDoc = numero;
     }
 
 }

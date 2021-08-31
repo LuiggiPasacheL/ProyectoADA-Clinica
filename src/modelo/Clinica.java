@@ -5,25 +5,46 @@ import java.util.Arrays;
 public class Clinica {
     String nombre;
     String ubicacion;
-    int numPacientes;
-    int numDoctores;
-    int numEnfermeros;
+    int numPacientes = 0;
+    int numDoctores = 0;
+    int numEnfermeros = 0;
     int aforo;
-    Medico[] medicos; //mejorar
+    Medico[] medicos;
+    int indiceMedico = 0;
     Paciente[] pacientes;
+    int indicePaciente = 0;
     int identificador;
 
-    public Clinica(String nombre, String ubicacion, int numPacientes, int numDoctores, int numEnfermeros, int aforo,
-                   int totalMedicos, Paciente[] pacientes, int identificador) {
+
+    public Clinica(String nombre, String ubicacion, int numEnfermeros, int aforo,
+                   int totalMedicos, int totalPacientes, int identificador) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
-        this.numPacientes = numPacientes;
-        this.numDoctores = numDoctores;
+        this.numPacientes = 0;
+        this.numDoctores = 0;
         this.numEnfermeros = numEnfermeros;
         this.aforo = aforo;
         this.medicos = new Medico[totalMedicos];
-        this.pacientes = pacientes;
+        this.pacientes = new Paciente[totalPacientes];
         this.identificador = identificador;
+    }
+
+    public boolean añadirMedico(Medico medico){
+        if(indiceMedico > medicos.length){
+            return false;
+        }
+        medicos[indiceMedico] = medico;
+        indiceMedico++;
+        return true;
+    }
+
+    public boolean añadirPaciente(Paciente paciente){
+        if(indicePaciente > pacientes.length){
+            return false;
+        }
+        pacientes[indicePaciente] = paciente;
+        indicePaciente++;
+        return true;
     }
 
     public String getNombre() {
