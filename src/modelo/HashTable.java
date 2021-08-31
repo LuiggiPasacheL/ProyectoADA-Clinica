@@ -1,6 +1,7 @@
 package modelo;
 
 public class HashTable<E> {
+    
     private Object[] arreglo;
     private int valorHash;
     private int cantidad;

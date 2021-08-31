@@ -7,12 +7,6 @@ public class Usuario extends Persona {
     String username;
     boolean conectado;
 
-    //para busquedas de usuarios
-    public Usuario(String username) {
-        super(null, null, null, null, null, null, null, null);
-        this.username = username;
-    }
-
     public Usuario(String codigo, String nombre, String apellidoP, String apellidoM,
                    String sexo, String correo, String numero, String tipo, String contrasena,
                    String username, boolean conectado) {
@@ -20,6 +14,7 @@ public class Usuario extends Persona {
         this.contrasena = contrasena;
         this.username = username;
         this.conectado = conectado;
+
     }
 
     public String getContrasena() {
@@ -69,13 +64,13 @@ public class Usuario extends Persona {
         }
         return true;
     }
-
-    @Override
+    
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
         return Objects.equals(username, usuario.username);
     }
+    
 
 }

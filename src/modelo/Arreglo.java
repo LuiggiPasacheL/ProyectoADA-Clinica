@@ -26,10 +26,9 @@ public class Arreglo<TD> {
     private final int tamano;
     private Object[] arreglo;
 
-    public Arreglo(int tamano) {
-
-        arreglo = new Object[tamano];
-        this.tamano = tamano;
+    public Arreglo() {
+        arreglo = new Object[0];
+        this.tamano = 0;
     }
 
     public void agregar(TD generico) {
@@ -75,8 +74,8 @@ public class Arreglo<TD> {
         return arreglo.length;
     }
 
-    public TD getPos(int i) {
-        return (TD) arreglo[i];
+    public TD[] getGenerico() {
+        return (TD[]) arreglo;
     }
 
 

@@ -1,6 +1,7 @@
 package modelo;
 
-public abstract class Persona {
+public  class Persona {
+    //abstract
     enum Sexo {
         M("M"), F("F");
 
@@ -9,7 +10,7 @@ public abstract class Persona {
         }
 
         private String sexo;
-    }
+    };
 
     String codigo;
     String nombre;
@@ -31,7 +32,9 @@ public abstract class Persona {
         this.correo = correo;
         this.documento = new Documento(numero, tipo);
     }
-
+    
+    public Persona(){}
+    
     public String getCodigo() {
         return codigo;
     }
@@ -103,5 +106,9 @@ public abstract class Persona {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-
+    
+    public String[] ListarSexo(){
+        String[] ls = {Sexo.F.toString(), Sexo.M.toString()};
+        return ls;
+    }
 }
