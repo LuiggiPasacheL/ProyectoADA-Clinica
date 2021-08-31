@@ -6,10 +6,11 @@ public class Usuario extends Persona {
     String contrasena;
     String username;
     boolean conectado;
+    String edad;
 
     public Usuario(String codigo, String nombre, String apellidoP, String apellidoM,
                    String sexo, String correo, String numero, String tipo, String contrasena,
-                   String username, boolean conectado) {
+                   String username, boolean conectado) throws Exception {
         super(codigo, nombre, apellidoP, apellidoM, sexo, correo, numero, tipo);
         this.contrasena = contrasena;
         this.username = username;

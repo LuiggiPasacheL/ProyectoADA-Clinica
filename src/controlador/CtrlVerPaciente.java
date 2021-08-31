@@ -39,6 +39,7 @@ public class CtrlVerPaciente {
         }
         this.vista.Tabla.setModel(modelo);  
         */
+        
         columna = vista.Tabla.getColumnModel().getColumn(0);
         columna.setPreferredWidth(50);
         columna.setMaxWidth(50);

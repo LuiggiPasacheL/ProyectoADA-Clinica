@@ -5,11 +5,11 @@ public class Medico extends Persona {
 
     public Medico(String codigo, String nombre, String apellidoP,
                   String apellidoM, String sexo, String correo,
-                  String numero, String tipo, boolean disponible) {
+                  String numero, String tipo, boolean disponible,String hospital) throws Exception {
         super(codigo, nombre, apellidoP, apellidoM, sexo, correo, numero, tipo);
         this.disponible = disponible;
     }
-
+    
     public boolean isDisponible() {
         return disponible;
     }
