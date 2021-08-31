@@ -20,6 +20,7 @@ public class App {
         FrmLogin vista = new FrmLogin();
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
+//hola
     }
 
 }
