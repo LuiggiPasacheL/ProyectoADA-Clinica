@@ -14,7 +14,7 @@ public class Paciente extends Persona/* implements Edad*/{
 
     public Paciente(String codigo,String edad, String nombre, String apellidoP, String apellidoM,
                     String sexo, String correo, String numero, String tipo,
-                    String direccion, String celular,boolean vacunado) throws Exception {
+                    String direccion, String celular) throws Exception {
      
         super(codigo, nombre, apellidoP, apellidoM, sexo, correo, numero, tipo);
         
@@ -23,7 +23,6 @@ public class Paciente extends Persona/* implements Edad*/{
         this.direccion = direccion;
         setCelular(celular);
         this.fechaVacunacion = fechaVacunacion;
-        this.vacunado = vacunado;
     }
     /*
     public String Edad(String edad){

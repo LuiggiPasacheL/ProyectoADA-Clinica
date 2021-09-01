@@ -5,17 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import modelo.Clinica;
-import modelo.Documento;
 import modelo.Paciente;
 import modelo.Persona;
 import vista.FrmInfoLugar;
-import vista.FrmLugares;
 import vista.FrmReservaCita;
+import vista.Ticket;
 
 public class CtrlReservaCita {
 
     FrmReservaCita vista;
-    Documento modelo2 = new Documento();
     Persona modelo3 = new Persona();
     // = new Persona();
 
@@ -37,8 +35,9 @@ public class CtrlReservaCita {
                             vista.txtPaterno.getText(), vista.txtMaterno.getText(), vista.cbxSexo.getSelectedItem().toString(),
                             vista.txtCorreo.getText(), vista.txtNumDocumento.getText(),
                             vista.cbxDocumento.getSelectedItem().toString(), vista.txtDireccion.getText(),
-                            vista.txtCel.getText(), false);
-                    Datos.colaPrioridad.agregar(paciente, Integer.valueOf(vista.txtEdad.getText()));
+                            vista.txtCel.getText());
+                    
+                    Datos.colaPrioridad.agregar(paciente, Integer.parseInt(vista.txtEdad.getText()));
 
                     String nombreClinica = (String) vista.CboClinicas.getSelectedItem();
 
@@ -50,13 +49,15 @@ public class CtrlReservaCita {
                     Datos.clinicas.añadirPaciente(nombreClinica, paciente);
                     //  JOptionPane.showMessageDialog(null, "Cita reservada");
                     vista.dispose();
-
-                    FrmLugares vistaLug = new FrmLugares();
-                    CtrlLugares controladorLug = new CtrlLugares(vistaLug);
-                    controladorLug.Iniciar();
+                    Ticket ticket = new Ticket();
+                    CtrlTicket cTicket = new CtrlTicket(paciente, nombreClinica, ticket);
+                    cTicket.iniciar();
+//                    FrmAdministrador fAdministrador = new FrmAdministrador();
+//                    CtrlAdministrador cAdministrador = new CtrlAdministrador(fAdministrador);
+//                    cAdministrador.iniciar();
 
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
             }
@@ -89,7 +90,7 @@ public class CtrlReservaCita {
     }
 
     public void CargarCombo() {
-        String[] arreglo = modelo2.TiposDeDocumentos(),
+        String[] arreglo = {"DNI", "Pasaporte"},
                 arreglo2 = modelo3.ListarSexo(), arreglo3 = Datos.clinicas.getStringClinicas();
         try {
             for (String a : arreglo) {
