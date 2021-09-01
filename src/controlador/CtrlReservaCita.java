@@ -87,6 +87,7 @@ public class CtrlReservaCita {
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
         CargarCombo();
+        pruebaControlador();
     }
 
     public void CargarCombo() {
@@ -122,5 +123,15 @@ public class CtrlReservaCita {
         vista.txtPaterno.setText("");
         vista.txtMaterno.setText("");
         vista.txtNumDocumento.setText("");
+    }
+    
+    public void pruebaControlador(){
+        vista.txtCel.setText("991739187");
+        vista.txtCorreo.setText("luiggip2108@gmail.com");
+        vista.txtDireccion.setText("los olivos");
+        vista.txtNombres.setText("luiggi");
+        vista.txtPaterno.setText("Pasache");
+        vista.txtMaterno.setText("Lopera");
+        vista.txtNumDocumento.setText("77343039");
     }
 }
