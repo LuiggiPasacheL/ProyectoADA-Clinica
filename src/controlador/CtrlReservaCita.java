@@ -36,7 +36,7 @@ public class CtrlReservaCita {
                             vista.txtCorreo.getText(), vista.txtNumDocumento.getText(),
                             vista.cbxDocumento.getSelectedItem().toString(), vista.txtDireccion.getText(),
                             vista.txtCel.getText());
-                    
+
                     Datos.colaPrioridad.agregar(paciente, Integer.parseInt(vista.txtEdad.getText()));
 
                     String nombreClinica = (String) vista.CboClinicas.getSelectedItem();
@@ -72,9 +72,9 @@ public class CtrlReservaCita {
                     JOptionPane.showMessageDialog(vista, "No se selecciono ninguna clinica", "ERROR", 1);
                     return;
                 }
-                
+
                 Clinica infoClinica = Datos.clinicas.buscarClinica(nombreClinica);
-                
+
                 vista.setVisible(false);
                 FrmInfoLugar fInfoLugar = new FrmInfoLugar();
                 CtrlInfoLugar cInfoLugar = new CtrlInfoLugar(infoClinica, fInfoLugar, vista);
