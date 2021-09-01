@@ -48,7 +48,7 @@ public class App {
 
     private static void crearMedicos(){
         try {
-//            Object[][] matriz = Excel.cargarExcel("src/general/medicos.csv");
+//            Object[][] matriz = Excel.cargarExcel("src/general/medicos.csv");//TODO: terminar para agregar medicos
             Medico medico1 = new Medico("1","ADRIANA CAROLINA","HERNANDEZ","MONTERROZA","F"
                     ,"xio190m@hotmail.co.uk","28746418","General");
             Medico medico2 = new Medico("2","PURIFICACION","TAPIA","SILVA","F"
