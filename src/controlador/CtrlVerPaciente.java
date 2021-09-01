@@ -10,11 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import modelo.Clinica;
 import modelo.Excel;
-import modelo.HashTableClinica;
 import modelo.Paciente;
-import modelo.UsuarioArreglo;
 import vista.FrmAdministrador;
 import vista.FrmTablaDePacientes;
 

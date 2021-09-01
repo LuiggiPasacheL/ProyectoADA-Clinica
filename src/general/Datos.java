@@ -8,7 +8,6 @@ import modelo.Clinica;
 import modelo.ColaPrioridad;
 import modelo.HashTableClinica;
 import modelo.Usuario;
-import modelo.UsuarioArreglo;
 
 public class Datos {   
     public static Arreglo <Usuario> usuarios = new Arreglo<Usuario>();

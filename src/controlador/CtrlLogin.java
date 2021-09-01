@@ -5,13 +5,17 @@
  */
 package controlador;
 
+import general.Credenciales;
 import general.Datos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import modelo.Usuario;
-import modelo.UsuarioArreglo;
 import vista.FrmAdministrador;
 import vista.FrmLogin;
 
@@ -19,9 +23,10 @@ import vista.FrmLogin;
  *
  * @author luigg
  */
-public class CtrlLogin {
+public class CtrlLogin implements Serializable {
 
     FrmLogin vista;
+    Credenciales credenciales = new Credenciales();
 
     public CtrlLogin(FrmLogin vista) {
 
@@ -34,13 +39,22 @@ public class CtrlLogin {
         this.vista.btnAcceder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                credenciales.username = vista.txtUsername.getText();
+                credenciales.guardar = vista.chkRecordar.isSelected();
 
                 if (vista.txtUsername.getText().equals("") || vista.txtPassword.getText().equals("")) {
                     JOptionPane.showMessageDialog(vista, "Ingreso de Datos", "Falta completar campos", 2);
                     return;
                 }
                 for (int i = 0; i < Datos.usuarios.getTamaño(); i++) {
-                    if (Datos.usuarios.getGenerico()[i].ingresar(vista.txtUsername.getText(), vista.txtPassword.getText())) {
+                    if (Datos.usuarios.getGenerico()[i].ingresar(vista.txtUsername.getText(),
+                            vista.txtPassword.getText())) {
+
+                        if (credenciales.guardar) {
+                            credenciales.serializar();
+                        }else{
+                            credenciales.borrarSerial();
+                        }
                         vista.dispose();
                         FrmAdministrador vista = new FrmAdministrador();
                         CtrlAdministrador controlador = new CtrlAdministrador(vista);
@@ -67,5 +81,12 @@ public class CtrlLogin {
     public void iniciar() {
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
+        credenciales.deserializar();
+        if (credenciales.guardar) {
+            this.vista.txtUsername.setText(credenciales.username);
+            this.vista.chkRecordar.setSelected(credenciales.guardar);
+            this.vista.txtUsername.transferFocus();
+        }
     }
+
 }

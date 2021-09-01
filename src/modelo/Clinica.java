@@ -11,6 +11,7 @@ public class Clinica {
     int aforo;
     Medico[] medicos;
     int indiceMedico = 0;
+//    ColaPrioridad pacientesCola; //agregar
     Paciente[] pacientes;
     int indicePaciente = 0;
     int identificador;

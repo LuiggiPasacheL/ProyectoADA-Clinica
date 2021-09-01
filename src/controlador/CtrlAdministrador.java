@@ -7,7 +7,6 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.UsuarioArreglo;
 import vista.FrmAdministrador;
 import vista.FrmReservaCita;
 import vista.FrmTablaDePacientes;

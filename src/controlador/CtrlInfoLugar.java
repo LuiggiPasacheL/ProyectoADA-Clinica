@@ -40,7 +40,7 @@ class CtrlInfoLugar {
     }
     
     public void mostrarDatos(){
-        //TODO mostrar datos terminar
+        //TODO terminar de mostrar datos relevantes terminar
         vista.lblNombreClinica.setText("<html><h1>"+modelo.getNombre()+"</h1></html>");
         vista.jlbDocDis.setText(String.valueOf(modelo.getNumDoctores()));
         vista.jlbPacientesTotal.setText(String.valueOf(modelo.getNumPacientes()));

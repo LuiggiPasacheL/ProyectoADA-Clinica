@@ -5,23 +5,21 @@ public class ColaPrioridad {
     Nodo primero;
     Nodo ultimo;
 
-
-    public void agregar(Paciente paciente, int prioridad){
+    public void agregar(Paciente paciente, int prioridad) {
         Nodo nuevo = new Nodo(paciente, prioridad);
 
-        if(primero == null){
+        if (primero == null) {
             primero = nuevo;
             ultimo = nuevo;
-        }else{
+        } else {
             Nodo aux = primero;
 
-            while(aux != null){
-                if(prioridad >= aux.prioridad && aux.siguiente == null){
+            while (aux != null) {
+                if (prioridad >= aux.prioridad && aux.siguiente == null) {
                     ultimo.siguiente = nuevo;
                     ultimo = nuevo;
                     break;
-                }
-                else if(prioridad >= aux.prioridad && prioridad < aux.siguiente.prioridad){
+                } else if (prioridad >= aux.prioridad && prioridad < aux.siguiente.prioridad) {
                     nuevo.siguiente = aux.siguiente;
                     aux.siguiente = nuevo;
 
@@ -33,14 +31,15 @@ public class ColaPrioridad {
         }
     }
 
-    public void imprimir(){
+    public void imprimir() {
         Nodo aux = primero;
-        while(aux != null){
-            System.out.println(aux.paciente +  "  Prioridad: " + aux.prioridad);
+        while (aux != null) {
+            System.out.println(aux.paciente + "  Prioridad: " + aux.prioridad);
             aux = aux.siguiente;
 
         }
     }
+
     /*
     public static void main(String[] args){
         ColaPrioridad c = new ColaPrioridad();
@@ -54,14 +53,15 @@ public class ColaPrioridad {
         c.agregar(100, 0);
         c.imprimir();
     }
-    */
+     */
 
-    class Nodo{
+    class Nodo {
+
         Paciente paciente;
         int prioridad;
         Nodo siguiente;
 
-        public Nodo(Paciente paciente, int prioridad){
+        public Nodo(Paciente paciente, int prioridad) {
             this.paciente = paciente;
             this.prioridad = prioridad;
             siguiente = null;
