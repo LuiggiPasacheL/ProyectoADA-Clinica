@@ -22,7 +22,7 @@ public class Credenciales implements Serializable {
 
     public void serializar() {
         try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("credencialesGuardadas.dat"));
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("src/general/credencialesGuardadas.dat"));
             os.writeObject(this);
             os.close();
         } catch (Exception ex) {
@@ -32,7 +32,7 @@ public class Credenciales implements Serializable {
 
     public void deserializar() {
         try {
-            ObjectInputStream is = new ObjectInputStream(new FileInputStream("credencialesGuardadas.dat"));
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream("src/general/credencialesGuardadas.dat"));
             Credenciales aux = (Credenciales) is.readObject();
             username = aux.username;
             guardar = aux.guardar;

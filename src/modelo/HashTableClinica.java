@@ -88,7 +88,7 @@ public class HashTableClinica {
 
     public boolean añadirMedico(String nombreClinica, Medico medico){
         int indiceClinica = busquedaPruebaLineal(nombreClinica);
-        if(indiceClinica >= clinicas.getTamanoMax()){
+        if(indiceClinica >= clinicas.getTamanoMax() || indiceClinica == -1){
             return false;
         }
         clinicas.get(indiceClinica).añadirMedico(medico);

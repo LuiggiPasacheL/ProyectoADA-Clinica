@@ -3,49 +3,43 @@ package modelo;
 import java.util.Arrays;
 
 public class Clinica {
+
     String nombre;
     String ubicacion;
-    int numPacientes = 0;
-    int numDoctores = 0;
+    int numMedicos = 0;
     int numEnfermeros = 0;
     int aforo;
     Medico[] medicos;
-    int indiceMedico = 0;
-//    ColaPrioridad pacientesCola; //agregar
-    Paciente[] pacientes;
-    int indicePaciente = 0;
+    ColaPrioridad pacientes; //agregar
+    int numPacientes = 0;
+//    Paciente[] pacientes;
     int identificador;
 
-
     public Clinica(String nombre, String ubicacion, int numEnfermeros, int aforo,
-                   int totalMedicos, int totalPacientes, int identificador) {
+            int totalMedicos, int totalPacientes, int identificador) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.numPacientes = 0;
-        this.numDoctores = 0;
+        this.numMedicos = 0;
         this.numEnfermeros = numEnfermeros;
         this.aforo = aforo;
         this.medicos = new Medico[totalMedicos];
-        this.pacientes = new Paciente[totalPacientes];
+//        this.pacientes = new Paciente[totalPacientes];
         this.identificador = identificador;
+        pacientes = new ColaPrioridad();
     }
 
-    public boolean añadirMedico(Medico medico){
-        if(indiceMedico >= medicos.length){
+    public boolean añadirMedico(Medico medico) {
+        if (numMedicos >= medicos.length) {
             return false;
         }
-        medicos[indiceMedico] = medico;
-        indiceMedico++;
-        numDoctores++;
+        medicos[numMedicos] = medico;
+        numMedicos++;
         return true;
     }
 
-    public boolean añadirPaciente(Paciente paciente){
-        if(indicePaciente >= pacientes.length){
-            return false;
-        }
-        pacientes[indicePaciente] = paciente;
-        indicePaciente++;
+    public boolean añadirPaciente(Paciente paciente) {
+        pacientes.agregar(paciente, paciente.getEdad());
         numPacientes++;
         return true;
     }
@@ -74,12 +68,12 @@ public class Clinica {
         this.numPacientes = numPacientes;
     }
 
-    public int getNumDoctores() {
-        return numDoctores;
+    public int getNumMedicos() {
+        return numMedicos;
     }
 
-    public void setNumDoctores(int numDoctores) {
-        this.numDoctores = numDoctores;
+    public void setNumMedicos(int numDoctores) {
+        this.numMedicos = numDoctores;
     }
 
     public int getNumEnfermeros() {
@@ -104,14 +98,6 @@ public class Clinica {
 
     public void setMedicos(Medico[] medicos) {
         this.medicos = medicos;
-    }
-
-    public Paciente[] getPacientes() {
-        return pacientes;
-    }
-
-    public void setPacientes(Paciente[] pacientes) {
-        this.pacientes = pacientes;
     }
 
     public int getIdentificador() {

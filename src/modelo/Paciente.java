@@ -3,16 +3,16 @@ package modelo;
 import general.Datos;
 
 public class Paciente extends Persona/* implements Edad*/{
-    String codigo;
-    float pago;
-    String direccion;
-    String celular;
-    String fechaVacunacion;
-    boolean vacunado;
-    String edad;
-    String hospital;
+    private String codigo;
+    private float pago;
+    private String direccion;
+    private String celular;
+    private String fechaVacunacion;
+    private boolean vacunado;
+    private int edad;
+    private String hospital;
 
-    public Paciente(String codigo,String edad, String nombre, String apellidoP, String apellidoM,
+    public Paciente(String codigo,int edad, String nombre, String apellidoP, String apellidoM,
                     String sexo, String correo, String numero, String tipo,
                     String direccion, String celular) throws Exception {
      
@@ -58,7 +58,9 @@ public class Paciente extends Persona/* implements Edad*/{
         this.fechaVacunacion = fechaVacunacion;
     }
      
-     
+    public int getEdad(){
+        return edad;
+    }
     
    
 }

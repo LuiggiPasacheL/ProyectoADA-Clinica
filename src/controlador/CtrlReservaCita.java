@@ -31,8 +31,9 @@ public class CtrlReservaCita {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 try {
-                    Paciente paciente = new Paciente("codigo", vista.txtEdad.getText(), vista.txtNombres.getText(),
-                            vista.txtPaterno.getText(), vista.txtMaterno.getText(), vista.cbxSexo.getSelectedItem().toString(),
+                    Paciente paciente = new Paciente("codigo", Integer.valueOf(vista.txtEdad.getText()),
+                             vista.txtNombres.getText(), vista.txtPaterno.getText(),
+                            vista.txtMaterno.getText(), vista.cbxSexo.getSelectedItem().toString(),
                             vista.txtCorreo.getText(), vista.txtNumDocumento.getText(),
                             vista.cbxDocumento.getSelectedItem().toString(), vista.txtDireccion.getText(),
                             vista.txtCel.getText());
