@@ -5,6 +5,9 @@
  */
 package controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.EventListener;
 import vista.FrmLugares;
 
 /**
@@ -17,7 +20,6 @@ public class CtrlLugares {
     public CtrlLugares(FrmLugares vista){
     
         this.vista = vista;
-        
         
     }
     

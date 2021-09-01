@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="313665bb-00bd-4df8-ab05-8e1ab8963115" name="Changes" comment="agregando HashTable y modificando HashTableClinica">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoADA-Clinica.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoADA-Clinica.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controlador/CtrlVerPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlador/CtrlVerPaciente.java" afterDir="false" />
     </list>

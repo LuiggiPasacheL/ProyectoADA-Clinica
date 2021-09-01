@@ -20,55 +20,51 @@ import vista.FrmLogin;
  * @author luigg
  */
 public class CtrlLogin {
-    
+
     FrmLogin vista;
 
-    public CtrlLogin( FrmLogin vista) {
-       
-        
+    public CtrlLogin(FrmLogin vista) {
+
         try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (Exception ex) {
-            
-            } 
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception ex) {
+
+        }
         this.vista = vista;
-        this.vista.btnAcceder.addActionListener(new ActionListener(){
+        this.vista.btnAcceder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
-                
-                if(vista.txtUsername.getText().equals("") || vista.txtPassword.getText().equals("")){
-                    JOptionPane.showMessageDialog(vista, "Ingreso de Datos","Falta completar campos" , 2);
+
+                if (vista.txtUsername.getText().equals("") || vista.txtPassword.getText().equals("")) {
+                    JOptionPane.showMessageDialog(vista, "Ingreso de Datos", "Falta completar campos", 2);
                     return;
                 }
-                for(int i=0; i<Datos.usuarios.getTamaño();i++){
-                   if(Datos.usuarios.getGenerico()[i].ingresar(vista.txtUsername.getText(),vista.txtPassword.getText())){
-                       vista.dispose();
-                       FrmAdministrador vista = new FrmAdministrador();
-                       CtrlAdministrador controlador = new CtrlAdministrador(vista);
-                       controlador.iniciar();
-                       
+                for (int i = 0; i < Datos.usuarios.getTamaño(); i++) {
+                    if (Datos.usuarios.getGenerico()[i].ingresar(vista.txtUsername.getText(), vista.txtPassword.getText())) {
+                        vista.dispose();
+                        FrmAdministrador vista = new FrmAdministrador();
+                        CtrlAdministrador controlador = new CtrlAdministrador(vista);
+                        controlador.iniciar();
+
                         //     limpiar();
-                       break;
-                   }else{
-                       JOptionPane.showMessageDialog(vista, "vuelva a intentarlo");
-                   }
-               }
-                
+                        break;
+                    } else {
+                        JOptionPane.showMessageDialog(vista, "vuelva a intentarlo");
+                    }
+                }
+
             }
         });
-        
+
         this.vista.btnRecuperar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                JOptionPane.showMessageDialog(vista, "recuperando", "recuperando", 1 );
+                JOptionPane.showMessageDialog(vista, "recuperando", "recuperando", 1);
             }
         });
     }
-    
-    
-    
-    public void iniciar(){
+
+    public void iniciar() {
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
     }

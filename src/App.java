@@ -5,13 +5,9 @@
  */
 
 import controlador.CtrlLogin;
-import controlador.CtrlLugares;
-import controlador.CtrlVerPaciente;
 import modelo.*;
 import vista.FrmLogin;
 import general.Datos;
-import vista.FrmLugares;
-import vista.FrmTablaDePacientes;
 /**
  *
  * @author luigg
@@ -25,35 +21,34 @@ public class App {
         //aca se combinan controlador vista y modelo
         
         //creando usuarios
-        Usuario usuario = new Usuario("19200114","nick" , "paredes","carranza", "M","nick.paredes@gmail.com","970385384","empleado", "1", "1", false);
-        
+        Usuario usuario = new Usuario("19200114","nick" , "paredes","carranza",
+                "M","nick.paredes@gmail.com","970385384","empleado", "1", "1", false);
         
         // creando clinicas 
-        
-       // Clinica clinica1 = new Clinica("clinica 1", "lima", 5, 4, 3, 100, 3, pacientes, 1);
+        crearHospitales();
+        //creando medicos y asignando a hospitales
+        crearMedicos();
         
         Datos.usuarios.agregar(usuario);
         
-       /*
         FrmLogin vista = new FrmLogin();
         CtrlLogin login = new CtrlLogin(vista);
         login.iniciar();
          
         
-        FrmTablaDePacientes fTablaDePacientes = new FrmTablaDePacientes();
-        CtrlVerPaciente cVerPaciente = new CtrlVerPaciente(fTablaDePacientes);                
-        cVerPaciente.Iniciar();
-         */
-       
-        FrmLugares vistaLug = new FrmLugares();
-        CtrlLugares controladorLug = new CtrlLugares(vistaLug);
-        controladorLug.Iniciar();
-                            
+//        FrmTablaDePacientes fTablaDePacientes = new FrmTablaDePacientes();
+//        CtrlVerPaciente cVerPaciente = new CtrlVerPaciente(fTablaDePacientes);
+//        cVerPaciente.Iniciar();
+
+//        FrmLugares vistaLug = new FrmLugares();
+//        CtrlLugares controladorLug = new CtrlLugares(vistaLug);
+//        controladorLug.Iniciar();
+
     }
 
-    private void crearMedicos(){
+    private static void crearMedicos(){
         try {
-            Object[][] matriz = Excel.cargarExcel("general/medicos.csv");
+//            Object[][] matriz = Excel.cargarExcel("src/general/medicos.csv");
             Medico medico1 = new Medico("1","ADRIANA CAROLINA","HERNANDEZ","MONTERROZA","F"
                     ,"xio190m@hotmail.co.uk","28746418","General");
             Medico medico2 = new Medico("2","PURIFICACION","TAPIA","SILVA","F"
@@ -72,19 +67,19 @@ public class App {
             Medico medico8 = new Medico("7","IGNACIO","PACHECO","GRAU","M"
                     ,"jtsjwtyjk@mail.com","84566452","Cardiología");
 
-            Datos.clinicas.añadirMedico(1, medico1);
-            Datos.clinicas.añadirMedico(1, medico2);
-            Datos.clinicas.añadirMedico(1, medico3);
-            Datos.clinicas.añadirMedico(1, medico4);
-            Datos.clinicas.añadirMedico(1, medico5);
-            Datos.clinicas.añadirMedico(1, medico6);
+            Datos.clinicas.añadirMedico("Guillermo Almenara Irigoyen", medico1);
+            Datos.clinicas.añadirMedico("Arzobispo Loayza", medico2);
+            Datos.clinicas.añadirMedico("Cayetano Heredia", medico3);
+            Datos.clinicas.añadirMedico("José Casimiro Ulloa", medico4);
+            Datos.clinicas.añadirMedico("Edgardo Rebagliati Martins", medico5);
+            Datos.clinicas.añadirMedico("Guillermo Almenara Irigoyen", medico6);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void crearHospitales(){
+    private static void crearHospitales(){
         Clinica clinica1 = new Clinica("Guillermo Almenara Irigoyen",
                 "Jirón García Naranjo 840, La Victoria 13, Lima.",
                 45, 2500, 40, 2000, 1);
@@ -100,7 +95,7 @@ public class App {
         Clinica clinica4 = new Clinica("José Casimiro Ulloa",
                 "Av. República de Panamá 6399, Miraflores 15048",
                 45, 2500, 40, 2000, 4);
-
+ 
         Clinica clinica5 = new Clinica("Edgardo Rebagliati Martins",
                 "Av Edgardo Rebagliati 490, Jesús María 15072",
                 45, 2500, 40, 2000, 5);

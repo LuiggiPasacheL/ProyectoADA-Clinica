@@ -30,20 +30,22 @@ public class Clinica {
     }
 
     public boolean añadirMedico(Medico medico){
-        if(indiceMedico > medicos.length){
+        if(indiceMedico >= medicos.length){
             return false;
         }
         medicos[indiceMedico] = medico;
         indiceMedico++;
+        numDoctores++;
         return true;
     }
 
     public boolean añadirPaciente(Paciente paciente){
-        if(indicePaciente > pacientes.length){
+        if(indicePaciente >= pacientes.length){
             return false;
         }
         pacientes[indicePaciente] = paciente;
         indicePaciente++;
+        numPacientes++;
         return true;
     }
 

@@ -38,6 +38,30 @@ public class HashTableClinica {
             }
         }
     }
+    
+    public int busquedaPruebaLineal(String nombreClinica){
+        Clinica result = null;
+        int pos = clinicas.hash(nombreClinica);
+        int posSgte;
+        result = clinicas.get(pos);
+        if(result.getNombre().equals(nombreClinica))
+            return pos;
+        else{
+            posSgte = pos + 1;
+            while (clinicas.get(posSgte) != null && !clinicas.get(posSgte).getNombre().equals(nombreClinica)
+                    && pos != posSgte) {
+                posSgte++;
+                if (posSgte == clinicas.getTamanoMax()) {
+                    posSgte = 0;
+                }
+            }
+            if (clinicas.get(posSgte) == null || pos == posSgte) {
+                return -1;
+            } else {
+                return (posSgte);
+            }
+        }
+    }
 
     public void imprimirClinicas() {
         for (int i = 0; i < clinicas.getTamanoMax(); i++) {
@@ -45,21 +69,35 @@ public class HashTableClinica {
                 System.out.println(clinicas.get(i));
         }
     }
+    
+    public String[] getStringClinicas(){
+        String[] resultado = new String[clinicas.getCantidad()];
+        int j = 0;
+        for(int i = 0; i < clinicas.getTamanoMax(); i++){
+            if(clinicas.get(i) != null){
+                resultado[j] = clinicas.get(i).getNombre();
+                j++;
+            }
+        }
+        return resultado;
+    }
 
     public boolean anadirClinica(Clinica clinica){
         return clinicas.agregar(clinica, clinica.getNombre());
     }
 
-    public boolean añadirMedico(int indiceClinica, Medico medico){
-        if(indiceClinica > clinicas.getTamanoMax()){
+    public boolean añadirMedico(String nombreClinica, Medico medico){
+        int indiceClinica = busquedaPruebaLineal(nombreClinica);
+        if(indiceClinica >= clinicas.getTamanoMax()){
             return false;
         }
         clinicas.get(indiceClinica).añadirMedico(medico);
         return true;
     }
 
-    public boolean añadirPaciente(int indiceClinica, Paciente paciente){
-        if(indiceClinica > clinicas.getTamanoMax()){
+    public boolean añadirPaciente(String nombreClinica, Paciente paciente){
+        int indiceClinica = busquedaPruebaLineal(nombreClinica);
+        if(indiceClinica >= clinicas.getTamanoMax()){
             return false;
         }
         clinicas.get(indiceClinica).añadirPaciente(paciente);
