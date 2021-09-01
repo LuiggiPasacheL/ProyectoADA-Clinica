@@ -10,33 +10,31 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import modelo.Clinica;
 import modelo.Excel;
 import modelo.Paciente;
 import vista.FrmAdministrador;
 import vista.FrmTablaDePacientes;
 
 public class CtrlVerPaciente {
-    
+
     FrmTablaDePacientes vista;
     DefaultTableModel modelo;
     Object[][] tablaVista;
-    
-    
-    //HashTableClinica htc;
 
+    //HashTableClinica htc;
     public CtrlVerPaciente(FrmTablaDePacientes vista) {
         TableColumn columna;
-        
+
         this.vista = vista;
         cargarTabla();
-     
+
         /*
         for(int i = 0;i<Datos.columnas.length;i++){
             modelo.addColumn(Datos.columnas[i]);
         }
         this.vista.Tabla.setModel(modelo);  
-        */
-        
+         */
         columna = vista.Tabla.getColumnModel().getColumn(0);
         columna.setPreferredWidth(50);
         columna.setMaxWidth(50);
@@ -53,7 +51,7 @@ public class CtrlVerPaciente {
         columna.setPreferredWidth(90);
         columna.setMaxWidth(90);
         columna.setMinWidth(90);
-        
+
         this.vista.btnAtras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -63,29 +61,32 @@ public class CtrlVerPaciente {
                 controlador.iniciar();
             }
         });
-        
+
     }
-    
-    public void Iniciar(){
-         vista.setVisible(true);
-         vista.setLocationRelativeTo(null);
-         //htc = new HashTableClinica(10);
+
+    public void Iniciar() {
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+        //htc = new HashTableClinica(10);
     }
-    
-    public void insertar(Paciente registro){
+
+    public void insertar(Paciente registro) {
         Object[] fila = {registro.getApellidoM()};
         modelo.addRow(fila);
         vista.Tabla.setModel(modelo);
     }
-    
-    private void cargarTabla(){
+
+    private void cargarTabla() {
         Object[][] matriz = Excel.cargarExcel("src/general/pacientes.xlsx");
-        this.modelo = new DefaultTableModel(matriz,Datos.columnas){
+        this.modelo = new DefaultTableModel(matriz, Datos.columnas) {
             @Override
-            public boolean isCellEditable(int filas, int columnas) {return false;};
+            public boolean isCellEditable(int filas, int columnas) {
+                return false;
+            }
+        ;
         };
         this.vista.Tabla.setModel(modelo);
+
     }
-    
-    
+
 }

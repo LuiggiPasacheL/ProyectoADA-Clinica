@@ -10,9 +10,8 @@ public class Clinica {
     int numEnfermeros = 0;
     int aforo;
     Medico[] medicos;
-    ColaPrioridad pacientes; //agregar
+    ColaPrioridad pacientes;
     int numPacientes = 0;
-//    Paciente[] pacientes;
     int identificador;
 
     public Clinica(String nombre, String ubicacion, int numEnfermeros, int aforo,
@@ -24,7 +23,6 @@ public class Clinica {
         this.numEnfermeros = numEnfermeros;
         this.aforo = aforo;
         this.medicos = new Medico[totalMedicos];
-//        this.pacientes = new Paciente[totalPacientes];
         this.identificador = identificador;
         pacientes = new ColaPrioridad();
     }
@@ -108,4 +106,7 @@ public class Clinica {
         this.identificador = identificador;
     }
 
+    public Paciente[] getPacientes(){
+        return pacientes.toArray();
+    }
 }

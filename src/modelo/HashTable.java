@@ -17,7 +17,7 @@ public class HashTable<E> {
         int j = 0;
         for (Object o : arreglo) {
             if (o != null) {
-                resultado[j] = o;
+                resultado[j] = (E) o;
                 j++;
             }
         }

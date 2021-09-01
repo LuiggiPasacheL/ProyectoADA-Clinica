@@ -2,9 +2,10 @@ package modelo;
 
 public class ColaPrioridad {
 
-    Nodo primero;
-    Nodo ultimo;
-
+    private Nodo primero;
+    private Nodo ultimo;
+    private int cantidad = 0;
+    
     public void agregar(Paciente paciente, int prioridad) {
         Nodo nuevo = new Nodo(paciente, prioridad);
 
@@ -29,6 +30,7 @@ public class ColaPrioridad {
 
             }
         }
+        cantidad++;
     }
 
     public void imprimir() {
@@ -40,6 +42,17 @@ public class ColaPrioridad {
         }
     }
 
+    public Paciente[] toArray(){
+        Paciente[] resultado = new Paciente[cantidad];
+        Nodo aux = primero;
+        int i = 0;
+        while(aux != null){
+            resultado[i] = aux.paciente;
+            aux = aux.siguiente;
+            i++;
+        }
+        return resultado;
+    }
     /*
     public static void main(String[] args){
         ColaPrioridad c = new ColaPrioridad();

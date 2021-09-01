@@ -1,4 +1,3 @@
-codigo;nombre;apellidoP;apellidoM;sexo;correo;numeroDoc;tipo
 1;OLGA;CUENCA;CARRERA;F;n85gseza40@netscape.net;26881778;General
 2;ANA ROSA;ALCAZAR;ALCARAZ;F;a0bjriz2@gmail.com;24217665;General
 3;MIGUEL ANGEL;OLIVA;ARJONA;F;m0d3u2xh@msn.com;56502594;General
@@ -29,6 +28,3 @@ codigo;nombre;apellidoP;apellidoM;sexo;correo;numeroDoc;tipo
 28;JULIAN;SALINAS;HERNANDEZ;M;zmiws7lbhc@aol.com;21460458;General
 29;JOSE JUAN;DIEZ;MILLAN;M;f8w7ei0w3@email.com;58632806;General
 30;JULIO;BARREIRO;BERNAL;M;0pc9mh3xr@lycos.de;22855356;General
-;;;;;;;
-;;;;;;;
-;;;;;;;

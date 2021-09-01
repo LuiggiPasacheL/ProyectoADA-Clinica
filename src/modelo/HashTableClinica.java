@@ -9,20 +9,21 @@ package modelo;
  * @author nick paredes
  */
 public class HashTableClinica {
+
     private HashTable<Clinica> clinicas;
 
-    public HashTableClinica(int tamano){
+    public HashTableClinica(int tamano) {
         clinicas = new HashTable<>(tamano);
     }
 
-    public Clinica buscarClinica(String clinica){
+    public Clinica buscarClinica(String clinica) {
         Clinica result = null;
         int pos = clinicas.hash(clinica);
         int posSgte;
         result = clinicas.get(pos);
-        if(result.getNombre().equals(clinica))
+        if (result.getNombre().equals(clinica)) {
             return result;
-        else{
+        } else {
             posSgte = pos + 1;
             while (clinicas.get(posSgte) != null && !clinicas.get(posSgte).getNombre().equals(clinica)
                     && pos != posSgte) {
@@ -38,15 +39,15 @@ public class HashTableClinica {
             }
         }
     }
-    
-    public int busquedaPruebaLineal(String nombreClinica){
+
+    public int busquedaPruebaLineal(String nombreClinica) {
         Clinica result = null;
         int pos = clinicas.hash(nombreClinica);
         int posSgte;
         result = clinicas.get(pos);
-        if(result.getNombre().equals(nombreClinica))
+        if (result.getNombre().equals(nombreClinica)) {
             return pos;
-        else{
+        } else {
             posSgte = pos + 1;
             while (clinicas.get(posSgte) != null && !clinicas.get(posSgte).getNombre().equals(nombreClinica)
                     && pos != posSgte) {
@@ -65,16 +66,17 @@ public class HashTableClinica {
 
     public void imprimirClinicas() {
         for (int i = 0; i < clinicas.getTamanoMax(); i++) {
-            if (clinicas.get(i) != null)
+            if (clinicas.get(i) != null) {
                 System.out.println(clinicas.get(i));
+            }
         }
     }
-    
-    public String[] getStringClinicas(){
+
+    public String[] getStringClinicas() {
         String[] resultado = new String[clinicas.getCantidad()];
         int j = 0;
-        for(int i = 0; i < clinicas.getTamanoMax(); i++){
-            if(clinicas.get(i) != null){
+        for (int i = 0; i < clinicas.getTamanoMax(); i++) {
+            if (clinicas.get(i) != null) {
                 resultado[j] = clinicas.get(i).getNombre();
                 j++;
             }
@@ -82,37 +84,78 @@ public class HashTableClinica {
         return resultado;
     }
 
-    public boolean anadirClinica(Clinica clinica){
+    public boolean anadirClinica(Clinica clinica) {
         return clinicas.agregar(clinica, clinica.getNombre());
     }
 
-    public boolean añadirMedico(String nombreClinica, Medico medico){
+    public boolean añadirMedico(String nombreClinica, Medico medico) {
         int indiceClinica = busquedaPruebaLineal(nombreClinica);
-        if(indiceClinica >= clinicas.getTamanoMax() || indiceClinica == -1){
+        if (indiceClinica >= clinicas.getTamanoMax() || indiceClinica == -1) {
             return false;
         }
         clinicas.get(indiceClinica).añadirMedico(medico);
         return true;
     }
 
-    public boolean añadirPaciente(String nombreClinica, Paciente paciente){
+    public boolean añadirPaciente(String nombreClinica, Paciente paciente) {
         int indiceClinica = busquedaPruebaLineal(nombreClinica);
-        if(indiceClinica >= clinicas.getTamanoMax()){
+        if (indiceClinica >= clinicas.getTamanoMax()) {
             return false;
         }
         clinicas.get(indiceClinica).añadirPaciente(paciente);
+        //TODO añadir paciente en el excel de pacientes
+        String codigo = "codigo";
+        String nombres = paciente.getNombre();
+        String apellidos = paciente.getApellidoP() + " " + paciente.getApellidoM();
+        String edad = String.valueOf(paciente.getEdad());
+        String sexo = paciente.getSexo();
+        String estado = "vacunado";
+        
+        String[] datos = {codigo,nombres, apellidos,edad,sexo,estado};
+        Excel.añadirFilaAExcel(datos, "src/general/pacientes.xlsx");
         return true;
+    }
+
+    public void añadirAExcel(String[] informacion, String path) {
+        Object[][] matrizAnterior = Excel.cargarExcel(path);
+        Object[][] matriz = new Object[matrizAnterior.length + 1][matrizAnterior[0].length];
+        int i, j;
+        for (i = 0; i < matrizAnterior.length; i++) {
+            for (j = 0; j < matrizAnterior[0].length + 1; j++) {
+                matriz[i][j] = matrizAnterior[i][j];
+            }
+        }
+        matriz[i] = informacion;
     }
 
     public Clinica[] toArray() {
         Clinica[] clinicas = new Clinica[this.clinicas.getTamanoMax()];
         for (int i = 0; i < this.clinicas.getTamanoMax(); i++) {
-            if (this.clinicas.get(i) != null)
+            if (this.clinicas.get(i) != null) {
                 clinicas[this.clinicas.get(i).getIdentificador() - 1] = this.clinicas.get(i);
+            }
         }
         return clinicas;
     }
 
+    public int getTamanoMax() {
+        return clinicas.getTamanoMax();
+    }
+
+    public int getCantidadClinicas() {
+        return clinicas.getCantidad();
+    }
+
+    public Object[][] getPacientes() {
+        int cantidadPacientes = 0;
+        Clinica[] aux = (Clinica[]) clinicas.toArray();
+        for (int i = 0; i < aux.length; i++) {
+            cantidadPacientes += aux[i].getNumPacientes();
+        }
+        Object[][] pacientes = new Object[4][cantidadPacientes];
+
+        return pacientes;
+    }
 //
 //    private Clinica[] dispersionClinicas;
 //    private int numClinicas;
@@ -220,6 +263,5 @@ public class HashTableClinica {
 //    public void setNumColisiones(int numColisiones) {
 //        this.numColisiones = numColisiones;
 //    }
-
 
 }
