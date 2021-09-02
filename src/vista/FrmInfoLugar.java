@@ -125,7 +125,6 @@ public class FrmInfoLugar extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         btnRetroceder.setBackground(new java.awt.Color(0, 153, 255));
-        btnRetroceder.setForeground(new java.awt.Color(255, 255, 255));
         btnRetroceder.setText("Salir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
