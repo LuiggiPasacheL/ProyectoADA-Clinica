@@ -50,7 +50,7 @@ public class CtrlTicket {
         vista.txtDNI.setText(modelo.getNumeroDoc());
         vista.tTipoDoc.setText(modelo.getTipo()+":");
         vista.tHora.setText(horaActual);
-        vista.tCodigoRegistro.setText("agregar aca codigo u otra cosa");
+        vista.tCodigoRegistro.setText("------");
     }
     
     public String calcularHora(){

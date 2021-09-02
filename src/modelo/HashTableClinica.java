@@ -5,6 +5,9 @@
  */
 package modelo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @author nick paredes
  */
@@ -72,18 +75,19 @@ public class HashTableClinica {
         }
     }
 
-    public String[] getStringClinicas() {
-        String[] resultado = new String[clinicas.getCantidad()];
-        int j = 0;
-        for (int i = 0; i < clinicas.getTamanoMax(); i++) {
-            if (clinicas.get(i) != null) {
-                resultado[j] = clinicas.get(i).getNombre();
-                j++;
+    /*public Clinica[] getClinicas() {
+        ArrayList<Clinica> clinicas = new ArrayList<Clinica>();
+        Clinica[] dispersion = this.clinicas.getArreglo();
+        for(Clinica c: dispersion){
+            if(c != null){
+                clinicas.add(c);
             }
         }
-        return resultado;
-    }
-
+        Clinica[] result = new Clinica[clinicas.size()];
+        clinicas.toArray(result);
+        Arrays.sort(result);
+        return result;
+    }*/
     public boolean anadirClinica(Clinica clinica) {
         return clinicas.agregar(clinica, clinica.getNombre());
     }
@@ -110,8 +114,8 @@ public class HashTableClinica {
         String edad = String.valueOf(paciente.getEdad());
         String sexo = paciente.getSexo();
         String estado = "vacunado";
-        
-        String[] datos = {codigo,nombres, apellidos,edad,sexo,estado};
+
+        String[] datos = {codigo, nombres, apellidos, edad, sexo, estado};
         Excel.añadirFilaAExcel(datos, "src/general/pacientes.xlsx");
         return true;
     }
@@ -129,10 +133,12 @@ public class HashTableClinica {
     }
 
     public Clinica[] toArray() {
-        Clinica[] clinicas = new Clinica[this.clinicas.getTamanoMax()];
+        Clinica[] clinicas = new Clinica[this.clinicas.getCantidad()];
+        int j = 0;
         for (int i = 0; i < this.clinicas.getTamanoMax(); i++) {
             if (this.clinicas.get(i) != null) {
-                clinicas[this.clinicas.get(i).getIdentificador() - 1] = this.clinicas.get(i);
+                clinicas[j] = this.clinicas.get(i);
+                j++;
             }
         }
         return clinicas;
@@ -155,6 +161,46 @@ public class HashTableClinica {
         Object[][] pacientes = new Object[4][cantidadPacientes];
 
         return pacientes;
+    }
+
+    public Clinica[] getClinicasOrdenadas() {
+        Clinica[] clinicas = toArray();
+        //ordenamiento de clinicas segun coeficiente
+        quicksort(clinicas, 0, clinicas.length - 1);
+
+        return clinicas;
+    }
+
+    private void quicksort(Clinica A[], int izq, int der) {
+
+        Clinica pivote = A[izq];
+        int i = izq;
+        int j = der;
+        Clinica aux;
+
+        while (i < j) {
+            while (A[i].calcularCoeficiente() <= pivote.calcularCoeficiente() && i < j) {
+                i++;
+            }
+            while (A[j].calcularCoeficiente() > pivote.calcularCoeficiente()) {
+                j--;
+            }
+            if (i < j) {
+                aux = A[i];
+                A[i] = A[j];
+                A[j] = aux;
+            }
+        }
+
+        A[izq] = A[j];
+        A[j] = pivote;
+
+        if (izq < j - 1) {
+            quicksort(A, izq, j - 1);
+        }
+        if (j + 1 < der) {
+            quicksort(A, j + 1, der);
+        }
     }
 //
 //    private Clinica[] dispersionClinicas;

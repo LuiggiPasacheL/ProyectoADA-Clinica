@@ -1,26 +1,32 @@
 package modelo;
 
 import general.Datos;
+import java.io.Serializable;
 
-public class Paciente extends Persona/* implements Edad*/{
-    private String codigo;
+public class Paciente extends Persona/* implements Edad*/ implements Serializable, Comparable{
+    
     private float pago;
     private String direccion;
     private String celular;
     private String fechaVacunacion;
     private boolean vacunado;
     private int edad;
-    private String hospital;
+    private Clinica clinica;
+    
+    public Paciente(String nombre, int edad){
+        this.edad = edad;
+        this.nombre = nombre;
+    }
 
     public Paciente(String codigo,int edad, String nombre, String apellidoP, String apellidoM,
                     String sexo, String correo, String numero, String tipo,
-                    String direccion, String celular) throws Exception {
+                    String direccion, String celular, Clinica hospital) throws Exception {
      
-        super(codigo, nombre, apellidoP, apellidoM, sexo, correo, numero, tipo);
+        super(codigo, nombre.toUpperCase(), apellidoP.toUpperCase(), apellidoM.toUpperCase(), sexo.toUpperCase(), correo.toUpperCase(), numero.toUpperCase(), tipo);
         
-        this.hospital=hospital;
+        this.clinica=hospital;
         this.edad=edad;
-        this.direccion = direccion;
+        this.direccion = direccion.toUpperCase();
         setCelular(celular);
         this.fechaVacunacion = fechaVacunacion;
     }
@@ -29,9 +35,7 @@ public class Paciente extends Persona/* implements Edad*/{
         return edad;
     }
     */
-    public void setHospital(String hospital){
-        this.hospital=hospital;
-    }
+
     
     public String getHospital(String hospital){
         return hospital;
@@ -61,6 +65,40 @@ public class Paciente extends Persona/* implements Edad*/{
     public int getEdad(){
         return edad;
     }
+
+ 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public boolean isVacunado() {
+        return vacunado;
+    }
+
+    public Clinica getClinica() {
+        return clinica;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Paciente p = (Paciente) o;
+        return this.edad > p.edad ? -1 : this.edad == p.edad ? 0 : 1;
+    }
+    
+    public String toString(){
+        return "Nombre: " + this.nombre + " Edad: " + this.edad;
+    }
+
+  
+
+   
+ 
+
+    
     
    
 }

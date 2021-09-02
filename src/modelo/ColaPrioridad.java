@@ -1,6 +1,8 @@
 package modelo;
 
-public class ColaPrioridad {
+import java.io.Serializable;
+
+public class ColaPrioridad implements Serializable{
 
     private Nodo primero;
     private Nodo ultimo;
@@ -68,7 +70,7 @@ public class ColaPrioridad {
     }
      */
 
-    class Nodo {
+    class Nodo implements Serializable{
 
         Paciente paciente;
         int prioridad;

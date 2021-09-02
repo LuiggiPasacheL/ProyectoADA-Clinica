@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Clinica {
+public class Clinica implements Comparable, Serializable{
 
     String nombre;
     String ubicacion;
@@ -40,6 +41,10 @@ public class Clinica {
         pacientes.agregar(paciente, paciente.getEdad());
         numPacientes++;
         return true;
+    }
+    
+    public float calcularCoeficiente(){
+        return (float) ((float)numPacientes / (float)numEnfermeros);
     }
 
     public String getNombre() {
@@ -108,5 +113,15 @@ public class Clinica {
 
     public Paciente[] getPacientes(){
         return pacientes.toArray();
+    }
+    
+    public String toString(){
+        return nombre;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Clinica c = (Clinica) o;
+        return this.identificador > c.identificador ? 1 : this.identificador == c.identificador ? 0 : -1;
     }
 }

@@ -7,6 +7,8 @@ package controlador;
 
 import general.Credenciales;
 import general.Datos;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -14,10 +16,16 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import vista.FrmAdministrador;
+import static vista.FrmDetalles.form;
 import vista.FrmLogin;
+import vista.FrmRecuperarDatos;
+import vista.TextPrompt;
 
 /**
  *
@@ -36,6 +44,9 @@ public class CtrlLogin implements Serializable {
 
         }
         this.vista = vista;
+      
+        
+        
         this.vista.btnAcceder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -73,15 +84,30 @@ public class CtrlLogin implements Serializable {
         this.vista.btnRecuperar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                JOptionPane.showMessageDialog(vista, "recuperando", "recuperando", 1);
+                FrmRecuperarDatos vista = new FrmRecuperarDatos();
+                CtrlFrmRecuperarDatos controlador;
+                try {
+                    controlador = new CtrlFrmRecuperarDatos(vista);
+                    controlador.iniciar(); 
+                } catch (Exception ex) {
+                    Logger.getLogger(CtrlLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                 
             }
         });
+    }
+    
+    public void properties(){
+        
+        /*TextPrompt t1 = new TextPrompt("USERNAME",vista.txtUsername);
+        TextPrompt t2 = new TextPrompt("PASSWORD",vista.txtPassword);*/
     }
 
     public void iniciar() {
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
         credenciales.deserializar();
+        properties();
         if (credenciales.guardar) {
             this.vista.txtUsername.setText(credenciales.username);
             this.vista.chkRecordar.setSelected(credenciales.guardar);

@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Usuario extends Persona {
     String contrasena;
     String username;
+    
     boolean conectado;
     String edad;
 

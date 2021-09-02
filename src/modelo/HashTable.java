@@ -77,8 +77,8 @@ public class HashTable<E> {
         return true;
     }
 
-    public Object[] getArreglo() {
-        return arreglo;
+    public E[] getArreglo() {
+        return (E[])arreglo;
     }
 
     public void setArreglo(Object[] arreglo) {
