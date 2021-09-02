@@ -76,26 +76,49 @@ public class HashTableClinica {
         Clinica[] clinicas = toArray();
         Clinica aux = null;
         //ordenamiento de clinicas segun coeficiente
-        for (int i = 0; i < clinicas.length; i++) {
-            for (int j = 0; j < clinicas.length - 1; j++) {
-                if (clinicas[j].calcularCoeficiente() > clinicas[j + 1].calcularCoeficiente()) { //ordenamiento menor a mayor
-                    aux = clinicas[j];
-                    clinicas[j] = clinicas[j + 1];
-                    clinicas[j + 1] = aux;
-                }
-            }
-        }
-
+        quicksort(clinicas, 0, clinicas.length - 1);
+        
         String[] resultado = new String[clinicas.length];
         int j = 0;
         for (int i = 0; i < clinicas.length; i++) {
             if (clinicas[i] != null) {
-                System.out.println(clinicas[i].calcularCoeficiente());
                 resultado[j] = clinicas[i].getNombre();
                 j++;
             }
         }
         return resultado;
+    }
+
+    private void quicksort(Clinica A[], int izq, int der) {
+
+        Clinica pivote = A[izq];
+        int i = izq;    
+        int j = der;      
+        Clinica aux;
+
+        while (i < j) {                                                         
+            while (A[i].calcularCoeficiente() <= pivote.calcularCoeficiente() && i < j) {
+                i++; 
+            }
+            while (A[j].calcularCoeficiente() > pivote.calcularCoeficiente()) {
+                j--;    
+            }
+            if (i < j) {                                          
+                aux = A[i];                     
+                A[i] = A[j];
+                A[j] = aux;
+            }
+        }
+
+        A[izq] = A[j];      
+        A[j] = pivote;      
+
+        if (izq < j - 1) {
+            quicksort(A, izq, j - 1);          
+        }
+        if (j + 1 < der) {
+            quicksort(A, j + 1, der);          
+        }
     }
 
     public boolean anadirClinica(Clinica clinica) {

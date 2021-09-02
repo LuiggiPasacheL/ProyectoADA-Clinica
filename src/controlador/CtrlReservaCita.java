@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import modelo.Clinica;
 import modelo.Paciente;
 import modelo.Persona;
+import vista.FrmAdministrador;
 import vista.FrmInfoLugar;
 import vista.FrmReservaCita;
 import vista.Ticket;
@@ -82,6 +83,16 @@ public class CtrlReservaCita {
                 cInfoLugar.iniciar();
             }
         });
+        
+        this.vista.btnSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                FrmAdministrador fAdministrador = new FrmAdministrador();
+                CtrlAdministrador cAdministrador = new CtrlAdministrador(fAdministrador);
+                vista.dispose();
+                cAdministrador.iniciar();
+            }
+        });
     }
 
     public void Iniciar() {
@@ -128,7 +139,7 @@ public class CtrlReservaCita {
     }
     
     public void probarReserva(){ //TODO borrar luego de las pruebas
-        vista.txtCel.setText("9873037194");
+        vista.txtCel.setText("987303719");
         vista.txtCorreo.setText("asd@gmail.com");
         vista.txtDireccion.setText("direccion de prueba");
         vista.txtNombres.setText("wasd wasd");

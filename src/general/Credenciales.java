@@ -41,8 +41,8 @@ public class Credenciales implements Serializable {
             ex.printStackTrace();
         }
     }
-    
-    public void borrarSerial(){
+
+    public void borrarSerial() {
         try {
             this.username = "";
             this.guardar = false;
@@ -53,4 +53,5 @@ public class Credenciales implements Serializable {
             ex.printStackTrace();
         }
     }
+
 }
