@@ -3,26 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/HashTable.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Excel.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Persona.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Paciente.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/ColaPrioridad.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Medico.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/vista/Ticket.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/HashTableUsuario.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/controlador/CtrlAdministrador.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Clinica.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/vista/FrmTablaDePacientes.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/controlador/CtrlLogin.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Administrador.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Sort.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Usuario.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/vista/FrmReservaCita.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/HashTableClinica.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/vista/TextPrompt.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Email.java</file>
-            <file>file:/C:/Users/nick%20paredes/Desktop/ProyectoADA-Clinica/ProyectoADA-Clinica/src/modelo/Arreglo.java</file>
+<<<<<<< HEAD
+            <file>file:/C:/Users/luigg/Desktop/Nueva%20carpeta/ProyectoADA-Clinica/ProyectoADA-Clinica/src/App.java</file>
+=======
+            <file>file:/C:/Users/luigg/Desktop/ProyectoADA-Clinica/src/controlador/CtrlReservaCita.java</file>
+>>>>>>> 5d0931c8a23262f82cddf827fadcfc4364d9d720
         </group>
     </open-files>
 </project-private>
