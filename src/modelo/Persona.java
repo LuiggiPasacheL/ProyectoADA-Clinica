@@ -54,7 +54,7 @@ public class Persona implements Serializable{
     }
 
     public String getApellidoM() {
-        return apellidoM;
+         return apellidoM;
     }
 
     public String getSexo() {
