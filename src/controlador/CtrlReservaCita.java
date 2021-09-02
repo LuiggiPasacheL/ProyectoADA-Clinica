@@ -110,6 +110,7 @@ public class CtrlReservaCita {
         TextPrompt t7 = new TextPrompt("DNI/PASAPORTE",vista.txtNumDocumento);
         TextPrompt t8 = new TextPrompt("APELLIDO PATERNO",vista.txtPaterno);*/
         CargarCombo();
+        probarReserva();
     }
 
     public void CargarCombo() {
@@ -145,5 +146,17 @@ public class CtrlReservaCita {
         vista.txtPaterno.setText("");
         vista.txtMaterno.setText("");
         vista.txtNumDocumento.setText("");
+        vista.txtEdad.setText("");
+    }
+    
+    public void probarReserva(){ //TODO borrar luego de las pruebas
+        vista.txtCel.setText("987303719");
+        vista.txtCorreo.setText("asd@gmail.com");
+        vista.txtDireccion.setText("direccion de prueba");
+        vista.txtNombres.setText("wasd wasd");
+        vista.txtPaterno.setText("asd");
+        vista.txtMaterno.setText("asdasd");
+        vista.txtNumDocumento.setText("11236489");
+        vista.txtEdad.setText("21");
     }
 }

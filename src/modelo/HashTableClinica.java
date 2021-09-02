@@ -88,6 +88,7 @@ public class HashTableClinica {
         Arrays.sort(result);
         return result;
     }*/
+        
     public boolean anadirClinica(Clinica clinica) {
         return clinicas.agregar(clinica, clinica.getNombre());
     }
