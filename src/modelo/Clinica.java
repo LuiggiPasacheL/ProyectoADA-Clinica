@@ -41,6 +41,10 @@ public class Clinica {
         numPacientes++;
         return true;
     }
+    
+    public float calcularCoeficiente(){
+        return (float) ((float)numPacientes / (float)numEnfermeros);
+    }
 
     public String getNombre() {
         return nombre;

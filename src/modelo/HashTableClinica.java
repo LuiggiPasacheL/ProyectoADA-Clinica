@@ -73,11 +73,25 @@ public class HashTableClinica {
     }
 
     public String[] getStringClinicas() {
-        String[] resultado = new String[clinicas.getCantidad()];
+        Clinica[] clinicas = toArray();
+        Clinica aux = null;
+        //ordenamiento de clinicas segun coeficiente
+        for (int i = 0; i < clinicas.length; i++) {
+            for (int j = 0; j < clinicas.length - 1; j++) {
+                if (clinicas[j].calcularCoeficiente() > clinicas[j + 1].calcularCoeficiente()) { //ordenamiento menor a mayor
+                    aux = clinicas[j];
+                    clinicas[j] = clinicas[j + 1];
+                    clinicas[j + 1] = aux;
+                }
+            }
+        }
+
+        String[] resultado = new String[clinicas.length];
         int j = 0;
-        for (int i = 0; i < clinicas.getTamanoMax(); i++) {
-            if (clinicas.get(i) != null) {
-                resultado[j] = clinicas.get(i).getNombre();
+        for (int i = 0; i < clinicas.length; i++) {
+            if (clinicas[i] != null) {
+                System.out.println(clinicas[i].calcularCoeficiente());
+                resultado[j] = clinicas[i].getNombre();
                 j++;
             }
         }
@@ -110,8 +124,8 @@ public class HashTableClinica {
         String edad = String.valueOf(paciente.getEdad());
         String sexo = paciente.getSexo();
         String estado = "vacunado";
-        
-        String[] datos = {codigo,nombres, apellidos,edad,sexo,estado};
+
+        String[] datos = {codigo, nombres, apellidos, edad, sexo, estado};
         Excel.añadirFilaAExcel(datos, "src/general/pacientes.xlsx");
         return true;
     }
@@ -129,10 +143,12 @@ public class HashTableClinica {
     }
 
     public Clinica[] toArray() {
-        Clinica[] clinicas = new Clinica[this.clinicas.getTamanoMax()];
+        Clinica[] clinicas = new Clinica[this.clinicas.getCantidad()];
+        int j = 0;
         for (int i = 0; i < this.clinicas.getTamanoMax(); i++) {
             if (this.clinicas.get(i) != null) {
-                clinicas[this.clinicas.get(i).getIdentificador() - 1] = this.clinicas.get(i);
+                clinicas[j] = this.clinicas.get(i);
+                j++;
             }
         }
         return clinicas;

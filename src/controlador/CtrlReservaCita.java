@@ -88,6 +88,7 @@ public class CtrlReservaCita {
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
         CargarCombo();
+        probarReserva();
     }
 
     public void CargarCombo() {
@@ -123,5 +124,17 @@ public class CtrlReservaCita {
         vista.txtPaterno.setText("");
         vista.txtMaterno.setText("");
         vista.txtNumDocumento.setText("");
+        vista.txtEdad.setText("");
+    }
+    
+    public void probarReserva(){ //TODO borrar luego de las pruebas
+        vista.txtCel.setText("9873037194");
+        vista.txtCorreo.setText("asd@gmail.com");
+        vista.txtDireccion.setText("direccion de prueba");
+        vista.txtNombres.setText("wasd wasd");
+        vista.txtPaterno.setText("asd");
+        vista.txtMaterno.setText("asdasd");
+        vista.txtNumDocumento.setText("11236489");
+        vista.txtEdad.setText("21");
     }
 }
