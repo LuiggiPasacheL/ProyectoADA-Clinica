@@ -19,10 +19,17 @@ public class App {
      */
     public static void main(String[] args) throws Exception {
         //aca se combinan controlador vista y modelo
-        
+        try{
+            Datos.deserializar();
+        }catch(Exception e){
+            System.out.println("El archivo no ha sido encontrado");
+        }
+        for(Paciente p: Datos.pacientes){
+            System.out.println(p.getCodigo());
+        }
         //creando usuarios
         Usuario usuario = new Usuario("19200114","nick" , "paredes","carranza",
-                "M","nick.paredes@gmail.com","970385384","empleado", "1", "1", false);
+                "M","inverttecla@gmail.com","970385384","empleado", "123456", "123456", false);
         
         // creando clinicas 
         crearHospitales();
@@ -34,7 +41,9 @@ public class App {
         FrmLogin vista = new FrmLogin();
         CtrlLogin login = new CtrlLogin(vista);
         login.iniciar();
-         
+          
+ 
+       
         
 //        FrmTablaDePacientes fTablaDePacientes = new FrmTablaDePacientes();
 //        CtrlVerPaciente cVerPaciente = new CtrlVerPaciente(fTablaDePacientes);
@@ -106,5 +115,5 @@ public class App {
         Datos.clinicas.anadirClinica(clinica4);
         Datos.clinicas.anadirClinica(clinica5);
     }
-    
+ 
 }

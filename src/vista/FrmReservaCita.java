@@ -5,6 +5,8 @@
  */
 package vista;
 
+import modelo.Clinica;
+
 /**
  *
  * @author luigg
@@ -29,7 +31,7 @@ public class FrmReservaCita extends javax.swing.JFrame {
 
         jPanel4 = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         CboClinicas = new javax.swing.JComboBox<>();
@@ -62,7 +64,7 @@ public class FrmReservaCita extends javax.swing.JFrame {
 
         btnAceptar.setText("Aceptar");
 
-        btnSalir.setText("Salir");
+        btnAtras.setText("atras");
 
         btnLimpiar.setText("limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +92,7 @@ public class FrmReservaCita extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
@@ -114,7 +116,7 @@ public class FrmReservaCita extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
-                    .addComponent(btnSalir)
+                    .addComponent(btnAtras)
                     .addComponent(btnLimpiar))
                 .addGap(30, 30, 30))
         );
@@ -365,11 +367,11 @@ public class FrmReservaCita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> CboClinicas;
+    public javax.swing.JComboBox<Clinica> CboClinicas;
     public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnAtras;
     public javax.swing.JButton btnLimpiar;
     public javax.swing.JButton btnMasInfo;
-    public javax.swing.JButton btnSalir;
     public javax.swing.JComboBox<String> cbxDocumento;
     public javax.swing.JComboBox<String> cbxSexo;
     private javax.swing.JLabel jLabel1;

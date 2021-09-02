@@ -5,15 +5,20 @@
  */
 package modelo;
 
+import util.HashTable;
+import util.Excel;
+
 /**
  * @author nick paredes
  */
 public class HashTableClinica {
 
     private HashTable<Clinica> clinicas;
+    private Clinica listaPacientes;
 
     public HashTableClinica(int tamano) {
         clinicas = new HashTable<>(tamano);
+        listaPacientes = new Clinica("Todos los pacientes", "", 0, 0, 0, 0, 0);
     }
 
     public Clinica buscarClinica(String clinica) {
@@ -72,55 +77,19 @@ public class HashTableClinica {
         }
     }
 
-    public String[] getStringClinicas() {
-        Clinica[] clinicas = toArray();
-        Clinica aux = null;
-        //ordenamiento de clinicas segun coeficiente
-        quicksort(clinicas, 0, clinicas.length - 1);
-        
-        String[] resultado = new String[clinicas.length];
-        int j = 0;
-        for (int i = 0; i < clinicas.length; i++) {
-            if (clinicas[i] != null) {
-                resultado[j] = clinicas[i].getNombre();
-                j++;
+    /*public Clinica[] getClinicas() {
+        ArrayList<Clinica> clinicas = new ArrayList<Clinica>();
+        Clinica[] dispersion = this.clinicas.getArreglo();
+        for(Clinica c: dispersion){
+            if(c != null){
+                clinicas.add(c);
             }
         }
-        return resultado;
-    }
-
-    private void quicksort(Clinica A[], int izq, int der) {
-
-        Clinica pivote = A[izq];
-        int i = izq;    
-        int j = der;      
-        Clinica aux;
-
-        while (i < j) {                                                         
-            while (A[i].calcularCoeficiente() <= pivote.calcularCoeficiente() && i < j) {
-                i++; 
-            }
-            while (A[j].calcularCoeficiente() > pivote.calcularCoeficiente()) {
-                j--;    
-            }
-            if (i < j) {                                          
-                aux = A[i];                     
-                A[i] = A[j];
-                A[j] = aux;
-            }
-        }
-
-        A[izq] = A[j];      
-        A[j] = pivote;      
-
-        if (izq < j - 1) {
-            quicksort(A, izq, j - 1);          
-        }
-        if (j + 1 < der) {
-            quicksort(A, j + 1, der);          
-        }
-    }
-
+        Clinica[] result = new Clinica[clinicas.size()];
+        clinicas.toArray(result);
+        Arrays.sort(result);
+        return result;
+    }*/
     public boolean anadirClinica(Clinica clinica) {
         return clinicas.agregar(clinica, clinica.getNombre());
     }
@@ -134,14 +103,12 @@ public class HashTableClinica {
         return true;
     }
 
-    public boolean añadirPaciente(String nombreClinica, Paciente paciente) {
-        int indiceClinica = busquedaPruebaLineal(nombreClinica);
-        if (indiceClinica >= clinicas.getTamanoMax()) {
-            return false;
-        }
-        clinicas.get(indiceClinica).añadirPaciente(paciente);
-        //TODO añadir paciente en el excel de pacientes
-        String codigo = "codigo";
+    public boolean añadirPaciente(Paciente paciente) {
+        Clinica clinicaAñadir = paciente.getClinica();
+        listaPacientes.añadirPaciente(paciente);
+        clinicaAñadir.añadirPaciente(paciente);
+
+        String codigo = paciente.getNumeroDoc(); // = "codigo";
         String nombres = paciente.getNombre();
         String apellidos = paciente.getApellidoP() + " " + paciente.getApellidoM();
         String edad = String.valueOf(paciente.getEdad());
@@ -185,15 +152,74 @@ public class HashTableClinica {
         return clinicas.getCantidad();
     }
 
-    public Object[][] getPacientes() {
-        int cantidadPacientes = 0;
-        Clinica[] aux = (Clinica[]) clinicas.toArray();
-        for (int i = 0; i < aux.length; i++) {
-            cantidadPacientes += aux[i].getNumPacientes();
+    public int getCantidadPacientes() {
+        int totalPacientes = 0;
+        for (Clinica c : toArray()) {
+            totalPacientes += c.getNumPacientes();
         }
-        Object[][] pacientes = new Object[4][cantidadPacientes];
+        return totalPacientes;
+    }
 
-        return pacientes;
+//    public Paciente[] getPacientes() {
+//        Paciente[] resultado = null;
+//        for (int i = 0; i < clinicas.getCantidad(); i++) {
+//            if (clinicas.get(i) != null) {
+//                resultado = concatenar(resultado, clinicas.get(i).getPacientes());
+//            }
+//        }
+//        return resultado;
+//    }
+//    public Object[][] getPacientes() {
+//        int cantidadPacientes = 0;
+//        Clinica[] aux = (Clinica[]) clinicas.toArray();
+//        for (int i = 0; i < aux.length; i++) {
+//            cantidadPacientes += aux[i].getNumPacientes();
+//        }
+//        Object[][] pacientes = new Object[4][cantidadPacientes];
+//
+//        return pacientes;
+//    }
+    public Clinica[] getClinicasOrdenadas() {
+        Clinica[] clinicas = toArray();
+        //ordenamiento de clinicas segun coeficiente
+        quicksort(clinicas, 0, clinicas.length - 1);
+
+        return clinicas;
+    }
+
+    private void quicksort(Clinica A[], int izq, int der) {
+        Clinica pivote = A[izq];
+        int i = izq;
+        int j = der;
+        Clinica aux;
+
+        while (i < j) {
+            while (A[i].calcularCoeficiente() <= pivote.calcularCoeficiente() && i < j) {
+                i++;
+            }
+            while (A[j].calcularCoeficiente() > pivote.calcularCoeficiente()) {
+                j--;
+            }
+            if (i < j) {
+                aux = A[i];
+                A[i] = A[j];
+                A[j] = aux;
+            }
+        }
+
+        A[izq] = A[j];
+        A[j] = pivote;
+
+        if (izq < j - 1) {
+            quicksort(A, izq, j - 1);
+        }
+        if (j + 1 < der) {
+            quicksort(A, j + 1, der);
+        }
+    }
+    
+    public Clinica getClinicaListaPacientes(){
+        return listaPacientes;
     }
 //
 //    private Clinica[] dispersionClinicas;

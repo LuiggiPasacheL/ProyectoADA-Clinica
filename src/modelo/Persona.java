@@ -1,8 +1,9 @@
 package modelo;
 
 import general.Datos;
+import java.io.Serializable;
 
-public class Persona {
+public class Persona implements Serializable{
 
     //abstract
     enum Sexo {
@@ -31,7 +32,8 @@ public class Persona {
         setApellidoMaterno(apellidoM);
         setApellidoPaterno(apellidoP);
         this.sexo = Sexo.valueOf(sexo);
-        setCorreo(correo);
+        //setCorreo(correo);
+        this.codigo = codigo;
         setDni(numeroDoc);
         this.tipo = tipo;
     }
