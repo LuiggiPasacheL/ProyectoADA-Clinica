@@ -10,6 +10,7 @@ import modelo.Persona;
 import vista.FrmAdministrador;
 import vista.FrmInfoLugar;
 import vista.FrmReservaCita;
+import vista.TextPrompt;
 import vista.Ticket;
 
 public class CtrlReservaCita {
@@ -109,17 +110,20 @@ public class CtrlReservaCita {
     public void Iniciar() {
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
-
-        /*TextPrompt t1 = new TextPrompt("CELULAR",vista.txtCel);
+        CargarCombo();
+        probarReserva();
+        pruebaPropiedades();
+    }
+    
+    public void pruebaPropiedades(){
+        TextPrompt t1 = new TextPrompt("CELULAR",vista.txtCel);
         TextPrompt t2 = new TextPrompt("CORREO ELECTRONICO",vista.txtCorreo);
         TextPrompt t3 = new TextPrompt("DIRECCION",vista.txtDireccion);
         TextPrompt t4 = new TextPrompt("EDAD",vista.txtEdad);
         TextPrompt t5 = new TextPrompt("APELLIDO MATERNO",vista.txtMaterno);
         TextPrompt t6 = new TextPrompt("NOMBRES",vista.txtNombres);
         TextPrompt t7 = new TextPrompt("DNI/PASAPORTE",vista.txtNumDocumento);
-        TextPrompt t8 = new TextPrompt("APELLIDO PATERNO",vista.txtPaterno);*/
-        CargarCombo();
-        probarReserva();
+        TextPrompt t8 = new TextPrompt("APELLIDO PATERNO",vista.txtPaterno);
     }
 
     public void CargarCombo() {

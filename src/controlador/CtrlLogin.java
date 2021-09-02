@@ -17,6 +17,7 @@ import javax.swing.UIManager;
 import vista.FrmAdministrador;
 import vista.FrmLogin;
 import vista.FrmRecuperarDatos;
+import vista.TextPrompt;
 
 /**
  *
@@ -89,8 +90,8 @@ public class CtrlLogin implements Serializable {
     
     public void properties(){
         
-        /*TextPrompt t1 = new TextPrompt("USERNAME",vista.txtUsername);
-        TextPrompt t2 = new TextPrompt("PASSWORD",vista.txtPassword);*/
+        TextPrompt t1 = new TextPrompt("USERNAME",vista.txtUsername);
+        TextPrompt t2 = new TextPrompt("PASSWORD",vista.txtPassword);
     }
 
     public void iniciar() {
