@@ -9,7 +9,7 @@ public class ColaPrioridad implements Serializable {
     private Nodo ultimo;
     private int cantidad = 0;
 
-    public void agregar(Paciente paciente, float prioridad) {
+    public void agregar(Paciente paciente, int prioridad) {
         Nodo nuevo = new Nodo(paciente, prioridad);
 
         if (primero == null) {
@@ -23,6 +23,8 @@ public class ColaPrioridad implements Serializable {
             if (prioridad >= aux.prioridad && ant == null) {
                 nuevo.siguiente = aux;
                 primero = nuevo;
+                System.out.println("agregando correctamente");
+
                 cantidad++;
                 return;
             }
@@ -31,19 +33,11 @@ public class ColaPrioridad implements Serializable {
                 if (prioridad >= aux.prioridad) {
                     nuevo.siguiente = aux;
                     ant.siguiente = nuevo;
+                    System.out.println("agregando correctamente");
+
                     cantidad++;
                     return;
                 }
-//                if (prioridad >= aux.prioridad && aux.siguiente == null) {
-//                    ultimo.siguiente = nuevo;
-//                    ultimo = nuevo;
-//                    break;
-//                } else if (prioridad >= aux.prioridad && prioridad < aux.siguiente.prioridad) {
-//                    nuevo.siguiente = aux.siguiente;
-//                    aux.siguiente = nuevo;
-//
-//                    break;
-//                }
                 ant = aux;
                 aux = aux.siguiente;
             }
@@ -51,9 +45,12 @@ public class ColaPrioridad implements Serializable {
             if (aux.siguiente == null && prioridad >= aux.prioridad) {
                 nuevo.siguiente = aux;
                 ant.siguiente = nuevo;
+                System.out.println("agregando correctamente");
+
                 cantidad++;
             } else {
                 aux.siguiente = nuevo;
+                System.out.println("agregando correctamente");
                 cantidad++;
             }
         }
@@ -96,10 +93,10 @@ public class ColaPrioridad implements Serializable {
     class Nodo implements Serializable {
 
         Paciente paciente;
-        float prioridad;
+        int prioridad;
         Nodo siguiente;
 
-        public Nodo(Paciente paciente, float prioridad) {
+        public Nodo(Paciente paciente, int prioridad) {
             this.paciente = paciente;
             this.prioridad = prioridad;
             siguiente = null;

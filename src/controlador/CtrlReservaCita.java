@@ -55,6 +55,7 @@ public class CtrlReservaCita {
                     Datos.data.add(row);
                     Datos.pacientes.add(paciente);
                     Datos.serializar();
+                    Datos.clinicas.serializarPacientes();
 
                     //  JOptionPane.showMessageDialog(null, "Cita reservada");
                     vista.dispose();

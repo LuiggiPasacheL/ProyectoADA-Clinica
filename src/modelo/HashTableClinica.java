@@ -5,13 +5,18 @@
  */
 package modelo;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import util.HashTable;
 import util.Excel;
 
 /**
  * @author nick paredes
  */
-public class HashTableClinica {
+public class HashTableClinica implements Serializable{
 
     private HashTable<Clinica> clinicas;
     private Clinica listaPacientes;
@@ -76,20 +81,34 @@ public class HashTableClinica {
             }
         }
     }
-
-    /*public Clinica[] getClinicas() {
-        ArrayList<Clinica> clinicas = new ArrayList<Clinica>();
-        Clinica[] dispersion = this.clinicas.getArreglo();
-        for(Clinica c: dispersion){
-            if(c != null){
-                clinicas.add(c);
-            }
+    
+    public void serializarPacientes(){
+        //serializar listadepacientes
+        try {
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("src/general/pacientes"));
+            os.writeObject(listaPacientes);
+            os.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        Clinica[] result = new Clinica[clinicas.size()];
-        clinicas.toArray(result);
-        Arrays.sort(result);
-        return result;
-    }*/
+    }
+    
+    public void deserializarPacientes(){
+        //usar metodo añadir paciente
+        try {
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream("src/general/pacientes"));
+            Clinica aux = (Clinica) is.readObject();
+            Paciente[] pacientes = aux.getPacientes();
+            for(Paciente p : pacientes){
+                añadirPaciente(p);
+                System.out.println(p.getClinica().getNombre());
+            }
+            is.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public boolean anadirClinica(Clinica clinica) {
         return clinicas.agregar(clinica, clinica.getNombre());
     }
@@ -160,25 +179,6 @@ public class HashTableClinica {
         return totalPacientes;
     }
 
-//    public Paciente[] getPacientes() {
-//        Paciente[] resultado = null;
-//        for (int i = 0; i < clinicas.getCantidad(); i++) {
-//            if (clinicas.get(i) != null) {
-//                resultado = concatenar(resultado, clinicas.get(i).getPacientes());
-//            }
-//        }
-//        return resultado;
-//    }
-//    public Object[][] getPacientes() {
-//        int cantidadPacientes = 0;
-//        Clinica[] aux = (Clinica[]) clinicas.toArray();
-//        for (int i = 0; i < aux.length; i++) {
-//            cantidadPacientes += aux[i].getNumPacientes();
-//        }
-//        Object[][] pacientes = new Object[4][cantidadPacientes];
-//
-//        return pacientes;
-//    }
     public Clinica[] getClinicasOrdenadas() {
         Clinica[] clinicas = toArray();
         //ordenamiento de clinicas segun coeficiente
@@ -221,112 +221,5 @@ public class HashTableClinica {
     public Clinica getClinicaListaPacientes(){
         return listaPacientes;
     }
-//
-//    private Clinica[] dispersionClinicas;
-//    private int numClinicas;
-//    private int dimension;
-//    private int numColisiones;
-//
-//    public HashTableClinica(int dimension) {
-//        this.dimension = dimension;
-//        this.numClinicas = 0;
-//        this.numColisiones = 0;
-//        dispersionClinicas = new Clinica[dimension];
-//    }
-//
-//    public Clinica buscarCLinica(String Clinica) {
-//        Clinica result = null;
-//        int pos = funcionHash(Clinica);
-//        result = dispersionClinicas[pos];
-//        //TODO definir caso de colision
-//        return result;
-//    }
-//
-//    public void imprimirClinicas() {
-//        for (int i = 0; i < dispersionClinicas.length; i++) {
-//            if (dispersionClinicas[i] != null)
-//                System.out.println(dispersionClinicas[i]);
-//        }
-//    }
-//
-//    public boolean agregarClinica(Clinica clinica) {
-//        boolean result = false;
-//        int pos = funcionHash(clinica.getNombre());
-//        if (this.dispersionClinicas[pos] == null) {
-//            this.dispersionClinicas[pos] = clinica;
-//            this.numClinicas++;
-//            result = true;
-//        } else {
-//            int k = 0;
-//            this.numColisiones++;
-//            //Resolucion de colision lineal
-//            while (!result && this.dispersionClinicas[pos] != null && this.dimension >= k) {
-//                pos++;
-//
-//                //System.out.println("valor de k: " + k);
-//                if (pos == dimension) {
-//                    pos = 0;
-//                }
-//
-//                if (this.dispersionClinicas[pos] == null) {
-//                    dispersionClinicas[pos] = clinica;
-//                    result = true;
-//                    this.numClinicas++;
-//                }
-//                k++;
-//            }
-//        }
-//        return result;
-//    }
-//
-//
-//    private int funcionHash(String nombre) {
-//        int c = 0;
-//        for (int i = 0; i < nombre.length(); i++) {
-//            c += nombre.charAt(i);
-//        }
-//        return (int) (c * Math.E) % this.dimension;
-//    }
-//
-//    public Clinica[] toArray() {
-//        Clinica[] clinicas = new Clinica[numClinicas];
-//        for (int i = 0; i < this.dispersionClinicas.length; i++) {
-//            if (dispersionClinicas[i] != null)
-//                clinicas[dispersionClinicas[i].getIdentificador() - 1] = dispersionClinicas[i];
-//        }
-//        return clinicas;
-//    }
-//
-//    public Clinica[] getDispersionClinicas() {
-//        return dispersionClinicas;
-//    }
-//
-//    public void setDispersionClinicas(Clinica[] dispersionClinicas) {
-//        this.dispersionClinicas = dispersionClinicas;
-//    }
-//
-//    public int getNumClinicas() {
-//        return numClinicas;
-//    }
-//
-//    public void setNumClinicas(int numClinicas) {
-//        this.numClinicas = numClinicas;
-//    }
-//
-//    public int getDimension() {
-//        return dimension;
-//    }
-//
-//    public void setDimension(int dimension) {
-//        this.dimension = dimension;
-//    }
-//
-//    public int getNumColisiones() {
-//        return numColisiones;
-//    }
-//
-//    public void setNumColisiones(int numColisiones) {
-//        this.numColisiones = numColisiones;
-//    }
 
 }

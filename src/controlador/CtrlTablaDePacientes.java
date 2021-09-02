@@ -201,17 +201,18 @@ public class CtrlTablaDePacientes {
     }*/
     private void cargarTabla() {
 
-        Object[] datos[] = new Object[Datos.data.size()][6];
-        Paciente[] aux = new Paciente[Datos.pacientes.size()];
-        Datos.pacientes.toArray(aux);
-        Sort.heapSort(aux);
+        Paciente[] aux2 = Datos.clinicas.getClinicaListaPacientes().getPacientes();
+        Object[] datos[] = new Object[aux2.length][6];
+//        Paciente[] aux = new Paciente[Datos.pacientes.size()];
+//        Datos.pacientes.toArray(aux);
+//        Sort.heapSort(aux);
 
-        for (int i = 0; i < Datos.pacientes.size(); i++) {
-            datos[i][0] = aux[i].getCodigo();
-            datos[i][1] = aux[i].getNombre();
-            datos[i][2] = aux[i].getApellidoP() + " " + aux[i].getApellidoM();
-            datos[i][3] = aux[i].getEdad();
-            datos[i][4] = aux[i].getSexo();
+        for (int i = 0; i < /*Datos.pacientes.size()*/ aux2.length; i++) {
+            datos[i][0] = aux2[i].getCodigo();
+            datos[i][1] = aux2[i].getNombre();
+            datos[i][2] = aux2[i].getApellidoP() + " " + aux2[i].getApellidoM();
+            datos[i][3] = aux2[i].getEdad();
+            datos[i][4] = aux2[i].getSexo();
             datos[i][5] = "";
         }
         Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "ESTADO"};
