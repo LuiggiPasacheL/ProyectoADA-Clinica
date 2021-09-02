@@ -9,7 +9,7 @@ public class ColaPrioridad implements Serializable{
     private Nodo ultimo;
     private int cantidad = 0;
     
-    public void agregar(Paciente paciente, int prioridad) {
+    public void agregar(Paciente paciente, float prioridad) {
         Nodo nuevo = new Nodo(paciente, prioridad);
 
         if (primero == null) {
@@ -39,7 +39,7 @@ public class ColaPrioridad implements Serializable{
     public void imprimir() {
         Nodo aux = primero;
         while (aux != null) {
-            System.out.println(aux.paciente + "  Prioridad: " + aux.prioridad);
+            System.out.println("  Prioridad: " + aux.prioridad);
             aux = aux.siguiente;
 
         }
@@ -56,28 +56,28 @@ public class ColaPrioridad implements Serializable{
         }
         return resultado;
     }
-    /*
+    
     public static void main(String[] args){
         ColaPrioridad c = new ColaPrioridad();
-        c.agregar(1, 0);
-        c.agregar(2, 0);
-        c.agregar(3, 0);
-        c.agregar(6, 3);
-        c.agregar(4, 1);
-        c.agregar(5, 2);
-        c.agregar(8, 5);
-        c.agregar(100, 0);
+        c.agregar(null, 0);
+        c.agregar(null, 0);
+        c.agregar(null, 0);
+        c.agregar(null, 3);
+        c.agregar(null, 1);
+        c.agregar(null, 2);
+        c.agregar(null, 5);
+        c.agregar(null, 0);
         c.imprimir();
     }
-     */
+    
 
     class Nodo implements Serializable{
 
         Paciente paciente;
-        int prioridad;
+        float prioridad;
         Nodo siguiente;
 
-        public Nodo(Paciente paciente, int prioridad) {
+        public Nodo(Paciente paciente, float prioridad) {
             this.paciente = paciente;
             this.prioridad = prioridad;
             siguiente = null;

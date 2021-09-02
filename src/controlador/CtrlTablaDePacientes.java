@@ -135,8 +135,25 @@ public class CtrlTablaDePacientes {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                ArrayList<Paciente> encontrados = new ArrayList<Paciente>();
-                Clinica c = (Clinica) vista.box.getSelectedItem();
-                Paciente[] encontrados = c.getPacientes();
+                Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "DIRECCION"};
+
+                if (vista.box.getSelectedIndex() == 0) {
+                    Clinica c = Datos.clinicas.getClinicaListaPacientes();
+                    Paciente[] encontrados = c.getPacientes();
+                    Object[][] nuevo = new Object[encontrados.length][6];
+                    for (int i = 0; i < encontrados.length; i++) {
+                        Paciente p = encontrados[i];
+                        nuevo[i][0] = p.getCodigo();
+                        nuevo[i][1] = p.getNombre();
+                        nuevo[i][2] = p.getApellidoP() + " " + p.getApellidoM();
+                        nuevo[i][3] = p.getEdad();
+                        nuevo[i][4] = p.getSexo();
+                        nuevo[i][5] = p.getDireccion();
+                    }
+                    vista.Tabla.setModel(new DefaultTableModel(nuevo, column));
+                } else {
+                    Clinica c = (Clinica) vista.box.getSelectedItem();
+                    Paciente[] encontrados = c.getPacientes();
 //                for (Paciente p : Datos.pacientes) {
 ////                    System.out.println(p.getClinica() + "  |  " + c);
 //                    if (p.getClinica().getNombre().equals(c.getNombre())) {
@@ -145,18 +162,18 @@ public class CtrlTablaDePacientes {
 //                    }
 //                }
 
-                Object[][] nuevo = new Object[encontrados.length][6];
-                for (int i = 0; i < encontrados.length; i++) {
-                    Paciente p = encontrados[i];
-                    nuevo[i][0] = p.getCodigo();
-                    nuevo[i][1] = p.getNombre();
-                    nuevo[i][2] = p.getApellidoP() + " " + p.getApellidoM();
-                    nuevo[i][3] = p.getEdad();
-                    nuevo[i][4] = p.getEdad();
-                    nuevo[i][5] = "";
+                    Object[][] nuevo = new Object[encontrados.length][6];
+                    for (int i = 0; i < encontrados.length; i++) {
+                        Paciente p = encontrados[i];
+                        nuevo[i][0] = p.getCodigo();
+                        nuevo[i][1] = p.getNombre();
+                        nuevo[i][2] = p.getApellidoP() + " " + p.getApellidoM();
+                        nuevo[i][3] = p.getEdad();
+                        nuevo[i][4] = p.getSexo();
+                        nuevo[i][5] = p.getDireccion();
+                    }
+                    vista.Tabla.setModel(new DefaultTableModel(nuevo, column));
                 }
-                Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "ESTADO"};
-                vista.Tabla.setModel(new DefaultTableModel(nuevo, column));
             }
 
         });
@@ -188,8 +205,8 @@ public class CtrlTablaDePacientes {
         Paciente[] aux = new Paciente[Datos.pacientes.size()];
         Datos.pacientes.toArray(aux);
         Sort.heapSort(aux);
- 
-        for (int i = 0; i < Datos.pacientes.size() ; i++) {
+
+        for (int i = 0; i < Datos.pacientes.size(); i++) {
             datos[i][0] = aux[i].getCodigo();
             datos[i][1] = aux[i].getNombre();
             datos[i][2] = aux[i].getApellidoP() + " " + aux[i].getApellidoM();
@@ -204,6 +221,7 @@ public class CtrlTablaDePacientes {
 
     private void cargarComponentes() {
         Clinica[] c = Datos.clinicas.toArray();
+        this.vista.box.addItem(Datos.clinicas.getClinicaListaPacientes());
         for (Clinica clinica : c) {
             this.vista.box.addItem(clinica);
         }

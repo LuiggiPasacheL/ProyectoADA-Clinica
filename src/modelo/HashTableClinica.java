@@ -14,9 +14,11 @@ import util.Excel;
 public class HashTableClinica {
 
     private HashTable<Clinica> clinicas;
+    private Clinica listaPacientes;
 
     public HashTableClinica(int tamano) {
         clinicas = new HashTable<>(tamano);
+        listaPacientes = new Clinica("Todos los pacientes", "", 0, 0, 0, 0, 0);
     }
 
     public Clinica buscarClinica(String clinica) {
@@ -103,6 +105,7 @@ public class HashTableClinica {
 
     public boolean añadirPaciente(Paciente paciente) {
         Clinica clinicaAñadir = paciente.getClinica();
+        listaPacientes.añadirPaciente(paciente);
         clinicaAñadir.añadirPaciente(paciente);
 
         String codigo = paciente.getNumeroDoc(); // = "codigo";
@@ -166,7 +169,6 @@ public class HashTableClinica {
 //        }
 //        return resultado;
 //    }
-
 //    public Object[][] getPacientes() {
 //        int cantidadPacientes = 0;
 //        Clinica[] aux = (Clinica[]) clinicas.toArray();
@@ -214,6 +216,10 @@ public class HashTableClinica {
         if (j + 1 < der) {
             quicksort(A, j + 1, der);
         }
+    }
+    
+    public Clinica getClinicaListaPacientes(){
+        return listaPacientes;
     }
 //
 //    private Clinica[] dispersionClinicas;

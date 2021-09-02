@@ -38,7 +38,7 @@ public class Clinica implements Comparable, Serializable{
     }
 
     public boolean añadirPaciente(Paciente paciente) {
-        pacientes.agregar(paciente, paciente.getEdad());
+        pacientes.agregar(paciente, 1/paciente.getEdad()); 
         numPacientes++;
         return true;
     }

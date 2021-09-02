@@ -18,6 +18,7 @@ import modelo.Usuario;
 public class Datos {  
     public static ArrayList<Object[]> data = new ArrayList<Object[]>();
     public static ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
+    
     public static Arreglo<Usuario> usuarios = new Arreglo<Usuario>();
 //    public static String[] columnas = new String[]{"Código","Nombres","Apellidos","Edad","sexo","estado"}; //TODO quitar esto de aca
 //    public static ColaPrioridad colaPrioridad = new ColaPrioridad();
