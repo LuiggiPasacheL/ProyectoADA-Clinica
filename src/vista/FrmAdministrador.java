@@ -31,23 +31,34 @@ public class FrmAdministrador extends javax.swing.JFrame {
         btnTabla = new javax.swing.JButton();
         btnReserCita = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnTabla.setBackground(new java.awt.Color(255, 255, 255));
+        btnTabla.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Pacientes.png"))); // NOI18N
         btnTabla.setText("Ver Pacientes");
-        btnTabla.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnTabla.setContentAreaFilled(false);
+        btnTabla.setBorder(null);
         btnTabla.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnTabla.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(btnTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 120, 110));
+        btnTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTablaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 120, 110));
 
+        btnReserCita.setBackground(new java.awt.Color(255, 255, 255));
+        btnReserCita.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnReserCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reserva1.png"))); // NOI18N
         btnReserCita.setText("Reservar Cita");
-        btnReserCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnReserCita.setContentAreaFilled(false);
+        btnReserCita.setBorderPainted(false);
         btnReserCita.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnReserCita.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnReserCita.addActionListener(new java.awt.event.ActionListener() {
@@ -55,22 +66,20 @@ public class FrmAdministrador extends javax.swing.JFrame {
                 btnReserCitaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnReserCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 120, 110));
+        jPanel1.add(btnReserCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 120, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoAdministrador.jpg"))); // NOI18N
-        jLabel1.setEnabled(false);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 360));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoAdministrador.jpg.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 0, 390, 430));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-mental-health-48.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 50, 50));
+
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 153));
+        jLabel3.setText("+SALUD");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,6 +87,10 @@ public class FrmAdministrador extends javax.swing.JFrame {
     private void btnReserCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReserCitaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReserCitaActionPerformed
+
+    private void btnTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTablaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTablaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,6 +131,8 @@ public class FrmAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnReserCita;
     public javax.swing.JButton btnTabla;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
