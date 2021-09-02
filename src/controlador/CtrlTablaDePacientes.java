@@ -36,7 +36,7 @@ public class CtrlTablaDePacientes {
         cargarTabla();
         cargarComponentes();
 
-        String[] columnas = {"Código", "Nombres", "Apellidos", "Edad", "sexo", "estado"};
+//        String[] columnas = {"Código", "Nombres", "Apellidos", "Edad", "sexo", "estado"};
 
         /*
         for(int i = 0;i<Datos.columnas.length;i++){
@@ -188,7 +188,8 @@ public class CtrlTablaDePacientes {
         Paciente[] aux = new Paciente[Datos.pacientes.size()];
         Datos.pacientes.toArray(aux);
         Sort.heapSort(aux);
-        for (int i = 0; i < Datos.pacientes.size(); i++) {
+ 
+        for (int i = 0; i < Datos.pacientes.size() ; i++) {
             datos[i][0] = aux[i].getCodigo();
             datos[i][1] = aux[i].getNombre();
             datos[i][2] = aux[i].getApellidoP() + " " + aux[i].getApellidoM();

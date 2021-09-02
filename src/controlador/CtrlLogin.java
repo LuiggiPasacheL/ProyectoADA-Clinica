@@ -35,8 +35,6 @@ public class CtrlLogin implements Serializable {
 
         }
         this.vista = vista;
-      
-        
         
         this.vista.btnAcceder.addActionListener(new ActionListener() {
             @Override

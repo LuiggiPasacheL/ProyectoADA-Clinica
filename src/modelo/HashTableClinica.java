@@ -74,7 +74,7 @@ public class HashTableClinica {
             }
         }
     }
-    
+
     /*public Clinica[] getClinicas() {
         ArrayList<Clinica> clinicas = new ArrayList<Clinica>();
         Clinica[] dispersion = this.clinicas.getArreglo();
@@ -88,7 +88,6 @@ public class HashTableClinica {
         Arrays.sort(result);
         return result;
     }*/
-        
     public boolean anadirClinica(Clinica clinica) {
         return clinicas.agregar(clinica, clinica.getNombre());
     }
@@ -105,7 +104,7 @@ public class HashTableClinica {
     public boolean añadirPaciente(Paciente paciente) {
         Clinica clinicaAñadir = paciente.getClinica();
         clinicaAñadir.añadirPaciente(paciente);
-        
+
         String codigo = paciente.getNumeroDoc(); // = "codigo";
         String nombres = paciente.getNombre();
         String apellidos = paciente.getApellidoP() + " " + paciente.getApellidoM();
@@ -150,17 +149,34 @@ public class HashTableClinica {
         return clinicas.getCantidad();
     }
 
-    public Object[][] getPacientes() {
-        int cantidadPacientes = 0;
-        Clinica[] aux = (Clinica[]) clinicas.toArray();
-        for (int i = 0; i < aux.length; i++) {
-            cantidadPacientes += aux[i].getNumPacientes();
+    public int getCantidadPacientes() {
+        int totalPacientes = 0;
+        for (Clinica c : toArray()) {
+            totalPacientes += c.getNumPacientes();
         }
-        Object[][] pacientes = new Object[4][cantidadPacientes];
-
-        return pacientes;
+        return totalPacientes;
     }
 
+//    public Paciente[] getPacientes() {
+//        Paciente[] resultado = null;
+//        for (int i = 0; i < clinicas.getCantidad(); i++) {
+//            if (clinicas.get(i) != null) {
+//                resultado = concatenar(resultado, clinicas.get(i).getPacientes());
+//            }
+//        }
+//        return resultado;
+//    }
+
+//    public Object[][] getPacientes() {
+//        int cantidadPacientes = 0;
+//        Clinica[] aux = (Clinica[]) clinicas.toArray();
+//        for (int i = 0; i < aux.length; i++) {
+//            cantidadPacientes += aux[i].getNumPacientes();
+//        }
+//        Object[][] pacientes = new Object[4][cantidadPacientes];
+//
+//        return pacientes;
+//    }
     public Clinica[] getClinicasOrdenadas() {
         Clinica[] clinicas = toArray();
         //ordenamiento de clinicas segun coeficiente
@@ -170,7 +186,6 @@ public class HashTableClinica {
     }
 
     private void quicksort(Clinica A[], int izq, int der) {
-
         Clinica pivote = A[izq];
         int i = izq;
         int j = der;

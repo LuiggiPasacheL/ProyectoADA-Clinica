@@ -46,7 +46,7 @@ public class Credenciales implements Serializable {
         try {
             this.username = "";
             this.debeGuardar = false;
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("credencialesGuardadas.dat"));
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("src/general/credencialesGuardadas.dat"));
             os.writeObject(this);
             os.close();
         } catch (Exception ex) {

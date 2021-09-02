@@ -27,19 +27,24 @@ public class CtrlReservaCita {
             }
 
         });
-        
+
         this.vista.btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 try {
-                    Paciente paciente = new Paciente(vista.txtNumDocumento.getText(), 
+                    Paciente paciente = new Paciente(
+                            vista.txtNumDocumento.getText(),
                             Integer.valueOf(vista.txtEdad.getText()),
-                            vista.txtNombres.getText(), vista.txtPaterno.getText(),
-                            vista.txtMaterno.getText(), vista.cbxSexo.getSelectedItem().toString(),
-                            vista.txtCorreo.getText(), vista.txtNumDocumento.getText(),
-                            vista.cbxDocumento.getSelectedItem().toString(), vista.txtDireccion.getText(),
-                            vista.txtCel.getText(), 
-                            (Clinica) vista.CboClinicas.getSelectedItem());
+                            vista.txtNombres.getText(), 
+                            vista.txtPaterno.getText(),vista.txtMaterno.getText(), 
+                            vista.cbxSexo.getSelectedItem().toString(),
+                            vista.txtCorreo.getText(), 
+                            vista.txtNumDocumento.getText(),
+                            vista.cbxDocumento.getSelectedItem().toString(), 
+                            vista.txtDireccion.getText(),
+                            vista.txtCel.getText(),
+                            (Clinica) vista.CboClinicas.getSelectedItem()
+                    );
 
 //                    Datos.colaPrioridad.agregar(paciente, Integer.parseInt(vista.txtEdad.getText()));
                     Datos.clinicas.añadirPaciente(paciente);
@@ -70,18 +75,21 @@ public class CtrlReservaCita {
         this.vista.btnMasInfo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String nombreClinica = (String) vista.CboClinicas.getSelectedItem().toString();
-
-                if (nombreClinica == null) {
-                    JOptionPane.showMessageDialog(vista, "No se selecciono ninguna clinica", "ERROR", 1);
-                    return;
-                }
-
-                Clinica infoClinica = Datos.clinicas.buscarClinica(nombreClinica);
+                Clinica clinica = (Clinica) vista.CboClinicas.getSelectedItem();
+//                String nombreClinica = (String) vista.CboClinicas.getSelectedItem().toString();
+//
+//                if (nombreClinica == null) {
+//                    JOptionPane.showMessageDialog(vista, "No se selecciono ninguna clinica", "ERROR", 1);
+//                    return;
+//                }
+//
+//                Clinica infoClinica = Datos.clinicas.buscarClinica(nombreClinica);
 
                 vista.setVisible(false);
                 FrmInfoLugar fInfoLugar = new FrmInfoLugar();
-                CtrlInfoLugar cInfoLugar = new CtrlInfoLugar(infoClinica, fInfoLugar, vista);
+//                CtrlInfoLugar cInfoLugar = new CtrlInfoLugar(infoClinica, fInfoLugar, vista);                
+                CtrlInfoLugar cInfoLugar = new CtrlInfoLugar(clinica, fInfoLugar, vista);
+
                 cInfoLugar.iniciar();
             }
         });
