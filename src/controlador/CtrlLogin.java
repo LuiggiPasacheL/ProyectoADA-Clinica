@@ -5,27 +5,18 @@
  */
 package controlador;
 
-import general.Credenciales;
+import util.Credenciales;
 import general.Datos;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import vista.FrmAdministrador;
-import static vista.FrmDetalles.form;
 import vista.FrmLogin;
 import vista.FrmRecuperarDatos;
-import vista.TextPrompt;
 
 /**
  *
@@ -51,7 +42,7 @@ public class CtrlLogin implements Serializable {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 credenciales.username = vista.txtUsername.getText();
-                credenciales.guardar = vista.chkRecordar.isSelected();
+                credenciales.debeGuardar = vista.chkRecordar.isSelected();
 
                 if (vista.txtUsername.getText().equals("") || vista.txtPassword.getText().equals("")) {
                     JOptionPane.showMessageDialog(vista, "Ingreso de Datos", "Falta completar campos", 2);
@@ -61,11 +52,12 @@ public class CtrlLogin implements Serializable {
                     if (Datos.usuarios.getGenerico()[i].ingresar(vista.txtUsername.getText(),
                             vista.txtPassword.getText())) {
 
-                        if (credenciales.guardar) {
+                        if (credenciales.debeGuardar) {
                             credenciales.serializar();
                         }else{
                             credenciales.borrarSerial();
                         }
+                        
                         vista.dispose();
                         FrmAdministrador vista = new FrmAdministrador();
                         CtrlAdministrador controlador = new CtrlAdministrador(vista);
@@ -85,9 +77,9 @@ public class CtrlLogin implements Serializable {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 FrmRecuperarDatos vista = new FrmRecuperarDatos();
-                CtrlFrmRecuperarDatos controlador;
+                CtrlRecuperarDatos controlador;
                 try {
-                    controlador = new CtrlFrmRecuperarDatos(vista);
+                    controlador = new CtrlRecuperarDatos(vista);
                     controlador.iniciar(); 
                 } catch (Exception ex) {
                     Logger.getLogger(CtrlLogin.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,9 +100,9 @@ public class CtrlLogin implements Serializable {
         this.vista.setLocationRelativeTo(null);
         credenciales.deserializar();
         properties();
-        if (credenciales.guardar) {
+        if (credenciales.debeGuardar) {
             this.vista.txtUsername.setText(credenciales.username);
-            this.vista.chkRecordar.setSelected(credenciales.guardar);
+            this.vista.chkRecordar.setSelected(credenciales.debeGuardar);
             this.vista.txtUsername.transferFocus();
         }
     }

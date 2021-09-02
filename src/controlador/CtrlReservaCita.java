@@ -10,14 +10,12 @@ import modelo.Persona;
 import vista.FrmAdministrador;
 import vista.FrmInfoLugar;
 import vista.FrmReservaCita;
-import vista.TextPrompt;
 import vista.Ticket;
 
 public class CtrlReservaCita {
 
     FrmReservaCita vista;
-    Persona modelo3 = new Persona();
-    // = new Persona();
+    Persona persona = new Persona();
 
     public CtrlReservaCita(FrmReservaCita vista) {
         this.vista = vista;
@@ -29,19 +27,22 @@ public class CtrlReservaCita {
             }
 
         });
+        
         this.vista.btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 try {
-                    Paciente paciente = new Paciente(vista.txtNumDocumento.getText(), Integer.valueOf(vista.txtEdad.getText()),
+                    Paciente paciente = new Paciente(vista.txtNumDocumento.getText(), 
+                            Integer.valueOf(vista.txtEdad.getText()),
                             vista.txtNombres.getText(), vista.txtPaterno.getText(),
                             vista.txtMaterno.getText(), vista.cbxSexo.getSelectedItem().toString(),
                             vista.txtCorreo.getText(), vista.txtNumDocumento.getText(),
                             vista.cbxDocumento.getSelectedItem().toString(), vista.txtDireccion.getText(),
-                            vista.txtCel.getText(), (Clinica) vista.CboClinicas.getSelectedItem());
+                            vista.txtCel.getText(), 
+                            (Clinica) vista.CboClinicas.getSelectedItem());
 
-                    Datos.colaPrioridad.agregar(paciente, Integer.parseInt(vista.txtEdad.getText()));
-                    Datos.clinicas.añadirPaciente(vista.CboClinicas.getSelectedItem().toString(), paciente);
+//                    Datos.colaPrioridad.agregar(paciente, Integer.parseInt(vista.txtEdad.getText()));
+                    Datos.clinicas.añadirPaciente(paciente);
 
                     //Datos.clinicas.añadirPaciente(nombreClinica, paciente);
                     Object row[] = {paciente.getCodigo(), paciente.getNombre(), paciente.getApellidoP() + " " + paciente.getApellidoM(), paciente.getEdad(), paciente.getSexo(), ""};
@@ -115,7 +116,7 @@ public class CtrlReservaCita {
 
     public void CargarCombo() {
         String[] arreglo = {"DNI", "Pasaporte"},
-                arreglo2 = modelo3.ListarSexo();
+                arreglo2 = persona.ListarSexo();
         Clinica[] arreglo3 = Datos.clinicas.getClinicasOrdenadas();
 
 //        Clinica[] arreglo3 = Datos.clinicas.toArray();
@@ -126,7 +127,7 @@ public class CtrlReservaCita {
             for (String b : arreglo2) {
                 this.vista.cbxSexo.addItem(b);
             }
-            for( Clinica c: arreglo3){
+            for (Clinica c : arreglo3) {
                 this.vista.CboClinicas.addItem(c);
             }
 
@@ -148,8 +149,8 @@ public class CtrlReservaCita {
         vista.txtNumDocumento.setText("");
         vista.txtEdad.setText("");
     }
-    
-    public void probarReserva(){ //TODO borrar luego de las pruebas
+
+    public void probarReserva() { //TODO borrar luego de las pruebas
         vista.txtCel.setText("987303719");
         vista.txtCorreo.setText("asd@gmail.com");
         vista.txtDireccion.setText("direccion de prueba");

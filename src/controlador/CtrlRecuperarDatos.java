@@ -10,13 +10,9 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import modelo.Email;
+import util.Email;
 import vista.FrmRecuperarDatos;
 import vista.TextPrompt;
 
@@ -24,11 +20,11 @@ import vista.TextPrompt;
  *
  * @author nick paredes
  */
-public class CtrlFrmRecuperarDatos {
+public class CtrlRecuperarDatos {
    
     FrmRecuperarDatos vista;
     
-    public CtrlFrmRecuperarDatos(FrmRecuperarDatos vista) throws Exception{
+    public CtrlRecuperarDatos(FrmRecuperarDatos vista) throws Exception{
         this.vista=vista;
         Properties();
         
@@ -71,8 +67,6 @@ public class CtrlFrmRecuperarDatos {
                     
                 }
                 
-                
-            
             }
         });
         

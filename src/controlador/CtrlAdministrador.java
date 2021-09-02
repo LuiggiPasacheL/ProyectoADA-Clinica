@@ -39,7 +39,7 @@ public class CtrlAdministrador {
             public void actionPerformed(ActionEvent e) {
                 vista.dispose();
                 FrmTablaDePacientes fTablaDePacientes = new FrmTablaDePacientes();
-                CtrlFrmTablaDePacientes cVerPaciente = new CtrlFrmTablaDePacientes(fTablaDePacientes);                
+                CtrlTablaDePacientes cVerPaciente = new CtrlTablaDePacientes(fTablaDePacientes);                
                 cVerPaciente.Iniciar();
             }            
         });

@@ -1,6 +1,7 @@
-package modelo;
+package util;
 
 import java.io.Serializable;
+import modelo.Paciente;
 
 public class ColaPrioridad implements Serializable{
 

@@ -1,6 +1,9 @@
 package modelo;
 
+import util.HashTable;
+
 public class HashTableUsuario {
+
     HashTable<Usuario> usuarios;
 
     public HashTableUsuario(int tamano) {
@@ -33,7 +36,7 @@ public class HashTableUsuario {
         return false;
     }
 
-    public int buscarUsuario(String username){
+    public int buscarUsuario(String username) {
         int pos = usuarios.hash(username);
         int posSgte;
         if (usuarios.get(pos) == null) {

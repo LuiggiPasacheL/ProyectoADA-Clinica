@@ -1,7 +1,7 @@
 package modelo;
 
+import util.ColaPrioridad;
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Clinica implements Comparable, Serializable{
 
@@ -118,7 +118,7 @@ public class Clinica implements Comparable, Serializable{
     public String toString(){
         return nombre;
     }
-
+    
     @Override
     public int compareTo(Object o) {
         Clinica c = (Clinica) o;

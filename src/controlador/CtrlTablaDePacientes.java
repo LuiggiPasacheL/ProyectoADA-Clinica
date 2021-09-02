@@ -6,8 +6,6 @@
 package controlador;
 
 import general.Datos;
-import static general.Datos.data;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -16,32 +14,29 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import modelo.Clinica;
-import modelo.Excel;
 import modelo.Paciente;
-import modelo.Sort;
+import util.Sort;
 import vista.FrmAdministrador;
 import vista.FrmDetalles;
-import static vista.FrmDetalles.form;
 import vista.FrmTablaDePacientes;
 
-public class CtrlFrmTablaDePacientes {
+public class CtrlTablaDePacientes {
 
     FrmTablaDePacientes vista;
-    
     Object[][] tablaVista;
 
     //HashTableClinica htc;
-    public CtrlFrmTablaDePacientes(FrmTablaDePacientes vista) {
+    public CtrlTablaDePacientes(FrmTablaDePacientes vista) {
         TableColumn columna;
 
         this.vista = vista;
         cargarTabla();
         cargarComponentes();
-        
+
+        String[] columnas = {"Código", "Nombres", "Apellidos", "Edad", "sexo", "estado"};
 
         /*
         for(int i = 0;i<Datos.columnas.length;i++){
@@ -49,7 +44,7 @@ public class CtrlFrmTablaDePacientes {
         }
         this.vista.Tabla.setModel(modelo);  
          */
-        /*columna = vista.Tabla.getColumnModel().getColumn(0);
+ /*columna = vista.Tabla.getColumnModel().getColumn(0);
         columna.setPreferredWidth(50);
         columna.setMaxWidth(50);
         columna.setMinWidth(50);
@@ -65,7 +60,6 @@ public class CtrlFrmTablaDePacientes {
         columna.setPreferredWidth(90);
         columna.setMaxWidth(90);
         columna.setMinWidth(90);*/
-
         this.vista.btnAtras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -75,83 +69,85 @@ public class CtrlFrmTablaDePacientes {
                 controlador.iniciar();
             }
         });
-        
-        vista.txtCodigoPaciente.addKeyListener(new KeyAdapter(){
+
+        vista.txtCodigoPaciente.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyTyped(KeyEvent e){
+            public void keyTyped(KeyEvent e) {
                 ArrayList<Paciente> encontrados = new ArrayList<Paciente>();
                 String cod = vista.txtCodigoPaciente.getText();
-                if(cod.length() != 0){
-                for(Paciente p: Datos.pacientes){
-                    System.out.println(p.getCodigo().substring(0, cod.length()+1));
-                    if(p.getCodigo().substring(0, cod.length()).equals(cod)){
-                        encontrados.add(p);
+                if (cod.length() != 0) {
+                    for (Paciente p : Datos.pacientes) {
+                        System.out.println(p.getCodigo().substring(0, cod.length() + 1));
+                        if (p.getCodigo().substring(0, cod.length()).equals(cod)) {
+                            encontrados.add(p);
+                        }
                     }
-                }
-                
-                Object[][] nuevo = new Object[encontrados.size()][6];
-                for(int i=0; i<encontrados.size(); i++){
-                    Paciente p = encontrados.get(i);
-                    nuevo[i][0] = p.getCodigo();
-                    nuevo[i][1] = p.getNombre();
-                    nuevo[i][2] = p.getApellidoP() + " " + p.getApellidoM();
-                    nuevo[i][3] = p.getEdad();
-                    nuevo[i][4] = p.getEdad();
-                    nuevo[i][5] = "";
-                }
-                Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "ESTADO"};
-                vista.Tabla.setModel(new DefaultTableModel(nuevo, column));
-                }else{
-                    cargarTabla();
-                }
-                }
-            @Override
-            public void keyReleased(KeyEvent e){
-                ArrayList<Paciente> encontrados = new ArrayList<Paciente>();
-                String cod = vista.txtCodigoPaciente.getText();
-                if(cod.length() != 0){
-                for(Paciente p: Datos.pacientes){
-                    System.out.println(p.getCodigo().substring(0, cod.length()+1));
-                    if(p.getCodigo().substring(0, cod.length()).equals(cod)){
-                        encontrados.add(p);
+
+                    Object[][] nuevo = new Object[encontrados.size()][6];
+                    for (int i = 0; i < encontrados.size(); i++) {
+                        Paciente p = encontrados.get(i);
+                        nuevo[i][0] = p.getCodigo();
+                        nuevo[i][1] = p.getNombre();
+                        nuevo[i][2] = p.getApellidoP() + " " + p.getApellidoM();
+                        nuevo[i][3] = p.getEdad();
+                        nuevo[i][4] = p.getEdad();
+                        nuevo[i][5] = "";
                     }
-                }
-                
-                Object[][] nuevo = new Object[encontrados.size()][6];
-                for(int i=0; i<encontrados.size(); i++){
-                    Paciente p = encontrados.get(i);
-                    nuevo[i][0] = p.getCodigo();
-                    nuevo[i][1] = p.getNombre();
-                    nuevo[i][2] = p.getApellidoP() + " " + p.getApellidoM();
-                    nuevo[i][3] = p.getEdad();
-                    nuevo[i][4] = p.getEdad();
-                    nuevo[i][5] = "";
-                }
-                Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "ESTADO"};
-                vista.Tabla.setModel(new DefaultTableModel(nuevo, column));
-                }else{
+                    Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "ESTADO"};
+                    vista.Tabla.setModel(new DefaultTableModel(nuevo, column));
+                } else {
                     cargarTabla();
                 }
             }
-            
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                ArrayList<Paciente> encontrados = new ArrayList<Paciente>();
+                String cod = vista.txtCodigoPaciente.getText();
+                if (cod.length() != 0) {
+                    for (Paciente p : Datos.pacientes) {
+                        System.out.println(p.getCodigo().substring(0, cod.length() + 1));
+                        if (p.getCodigo().substring(0, cod.length()).equals(cod)) {
+                            encontrados.add(p);
+                        }
+                    }
+
+                    Object[][] nuevo = new Object[encontrados.size()][6];
+                    for (int i = 0; i < encontrados.size(); i++) {
+                        Paciente p = encontrados.get(i);
+                        nuevo[i][0] = p.getCodigo();
+                        nuevo[i][1] = p.getNombre();
+                        nuevo[i][2] = p.getApellidoP() + " " + p.getApellidoM();
+                        nuevo[i][3] = p.getEdad();
+                        nuevo[i][4] = p.getEdad();
+                        nuevo[i][5] = "";
+                    }
+                    Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "ESTADO"};
+                    vista.Tabla.setModel(new DefaultTableModel(nuevo, column));
+                } else {
+                    cargarTabla();
+                }
+            }
+
         });
-        
-        vista.buscar.addActionListener(new ActionListener(){
+
+        vista.buscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<Paciente> encontrados = new ArrayList<Paciente>();
+//                ArrayList<Paciente> encontrados = new ArrayList<Paciente>();
                 Clinica c = (Clinica) vista.box.getSelectedItem();
-                for(Paciente p: Datos.pacientes){
-                    System.out.println(p.getClinica() + "  |  " + c);
-                    if(p.getClinica().getNombre().equals(c.getNombre())){
-                        System.out.println("Entramos");
-                        encontrados.add(p);
-                    }
-                }
-                
-                Object[][] nuevo = new Object[encontrados.size()][6];
-                for(int i=0; i<encontrados.size(); i++){
-                    Paciente p = encontrados.get(i);
+                Paciente[] encontrados = c.getPacientes();
+//                for (Paciente p : Datos.pacientes) {
+////                    System.out.println(p.getClinica() + "  |  " + c);
+//                    if (p.getClinica().getNombre().equals(c.getNombre())) {
+//                        System.out.println("Entramos");
+//                        encontrados.add(p);
+//                    }
+//                }
+
+                Object[][] nuevo = new Object[encontrados.length][6];
+                for (int i = 0; i < encontrados.length; i++) {
+                    Paciente p = encontrados[i];
                     nuevo[i][0] = p.getCodigo();
                     nuevo[i][1] = p.getNombre();
                     nuevo[i][2] = p.getApellidoP() + " " + p.getApellidoM();
@@ -162,17 +158,16 @@ public class CtrlFrmTablaDePacientes {
                 Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "ESTADO"};
                 vista.Tabla.setModel(new DefaultTableModel(nuevo, column));
             }
-            
+
         });
-        
-        this.vista.btnDetalles.addActionListener(new ActionListener(){
+
+        this.vista.btnDetalles.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CtrlFrmDetalles ctrl = new CtrlFrmDetalles(new FrmDetalles());
             }
-            
+
         });
-     
 
     }
 
@@ -187,17 +182,16 @@ public class CtrlFrmTablaDePacientes {
         Datos.dt.addRow(fila);
         vista.Tabla.setModel(Datos.dt);
     }*/
-
     private void cargarTabla() {
-        
+
         Object[] datos[] = new Object[Datos.data.size()][6];
         Paciente[] aux = new Paciente[Datos.pacientes.size()];
         Datos.pacientes.toArray(aux);
         Sort.heapSort(aux);
-        for(int i=0; i<Datos.pacientes.size(); i++){
+        for (int i = 0; i < Datos.pacientes.size(); i++) {
             datos[i][0] = aux[i].getCodigo();
             datos[i][1] = aux[i].getNombre();
-            datos[i][2] = aux[i].getApellidoP()+ " " + aux[i].getApellidoM();
+            datos[i][2] = aux[i].getApellidoP() + " " + aux[i].getApellidoM();
             datos[i][3] = aux[i].getEdad();
             datos[i][4] = aux[i].getSexo();
             datos[i][5] = "";
@@ -206,73 +200,62 @@ public class CtrlFrmTablaDePacientes {
         this.vista.Tabla.setModel(new DefaultTableModel(datos, column));
 
     }
-    
-    
-    private void cargarComponentes(){
+
+    private void cargarComponentes() {
         Clinica[] c = Datos.clinicas.toArray();
-        for(Clinica clinica: c){
+        for (Clinica clinica : c) {
             this.vista.box.addItem(clinica);
         }
-        
     }
-    
+
     public class CtrlFrmDetalles {
 
         private boolean isAbierto = false;
         private FrmDetalles vs;
         private Paciente paciente;
-    
-    
-   
-        public CtrlFrmDetalles(FrmDetalles vs){
+
+        public CtrlFrmDetalles(FrmDetalles vs) {
             this.vs = vs;
             this.paciente = obtenerPaciente((String) vista.Tabla.getValueAt(vista.Tabla.getSelectedRow(), 0));
             propiedades();
             eventos();
             funcionalidadTextArea();
-       //     funcionalidadTextArea();
+            //     funcionalidadTextArea();
         }
-        private void propiedades(){
+
+        private void propiedades() {
             vs.setVisible(true);
             vs.setLocationRelativeTo(null);
             vs.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
-        
-        private void eventos(){
-            
+
+        private void eventos() {
+
         }
-    
+
         private void funcionalidadTextArea() {
             Date date = new Date();
-            vs.txtAreaDetalles.setText("\t\tREPORTE DEL PACIENTE\n\nPciente: " + paciente.getNombre() + " " + paciente.getApellidoP() + " " + paciente.getApellidoM() 
-            + "\nEdad: " + paciente.getEdad() + "\nSexo: " + paciente.getSexo() + "\n"
-            + "\nCódigo: " + paciente.getCodigo() + "\nCorreo: " + paciente.getCorreo() + "\n"
-            + "\nTipo: " + paciente.getTipo() + "\nNumero: " + paciente.getNumeroDoc() + "\n"
-            + "\nDireccion: " + paciente.getTipo() + "\nCelular: " + paciente.getNumeroDoc() + "\n"
-            + new SimpleDateFormat("dd/MM/yyyy").format(date) + " - " + new SimpleDateFormat("HH:mm:ss").format(date));
+            vs.txtAreaDetalles.setText("\t\tREPORTE DEL PACIENTE\n\nPciente: " + paciente.getNombre() + " " + paciente.getApellidoP() + " " + paciente.getApellidoM()
+                    + "\nEdad: " + paciente.getEdad() + "\nSexo: " + paciente.getSexo() + "\n"
+                    + "\nCódigo: " + paciente.getCodigo() + "\nCorreo: " + paciente.getCorreo() + "\n"
+                    + "\nTipo: " + paciente.getTipo() + "\nNumero: " + paciente.getNumeroDoc() + "\n"
+                    + "\nDireccion: " + paciente.getTipo() + "\nCelular: " + paciente.getNumeroDoc() + "\n"
+                    + new SimpleDateFormat("dd/MM/yyyy").format(date) + " - " + new SimpleDateFormat("HH:mm:ss").format(date));
         }
-    
+
         public void iniciar() {
             this.vs.setVisible(true);
             this.vs.setLocationRelativeTo(null);
         }
-        
-        private Paciente obtenerPaciente(String codigo){
-            
-            for(Paciente p : Datos.pacientes){
-                if(p.getCodigo().equals(codigo)){
+
+        private Paciente obtenerPaciente(String codigo) {
+            for (Paciente p : Datos.pacientes) {
+                if (p.getCodigo().equals(codigo)) {
                     return p;
                 }
             }
-            
             return null;
         }
     }
-    
-//    public static void main(String[] args){
-//        String cadena = "71269132";
-//        System.out.println(cadena.length());
-//        System.out.println(cadena.substring(0, 2));
-//    }
 
 }

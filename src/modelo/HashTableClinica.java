@@ -5,8 +5,8 @@
  */
 package modelo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import util.HashTable;
+import util.Excel;
 
 /**
  * @author nick paredes
@@ -74,7 +74,7 @@ public class HashTableClinica {
             }
         }
     }
-
+    
     /*public Clinica[] getClinicas() {
         ArrayList<Clinica> clinicas = new ArrayList<Clinica>();
         Clinica[] dispersion = this.clinicas.getArreglo();
@@ -102,14 +102,11 @@ public class HashTableClinica {
         return true;
     }
 
-    public boolean añadirPaciente(String nombreClinica, Paciente paciente) {
-        int indiceClinica = busquedaPruebaLineal(nombreClinica);
-        if (indiceClinica >= clinicas.getTamanoMax()) {
-            return false;
-        }
-        clinicas.get(indiceClinica).añadirPaciente(paciente);
-        //TODO añadir paciente en el excel de pacientes
-        String codigo = "codigo";
+    public boolean añadirPaciente(Paciente paciente) {
+        Clinica clinicaAñadir = paciente.getClinica();
+        clinicaAñadir.añadirPaciente(paciente);
+        
+        String codigo = paciente.getNumeroDoc(); // = "codigo";
         String nombres = paciente.getNombre();
         String apellidos = paciente.getApellidoP() + " " + paciente.getApellidoM();
         String edad = String.valueOf(paciente.getEdad());

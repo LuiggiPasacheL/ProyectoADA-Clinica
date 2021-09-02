@@ -1,4 +1,4 @@
-package modelo;
+package util;
 
 public class HashTable<E> {
     
