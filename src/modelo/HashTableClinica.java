@@ -123,7 +123,8 @@ public class HashTableClinica implements Serializable{
     }
 
     public boolean añadirPaciente(Paciente paciente) {
-        Clinica clinicaAñadir = paciente.getClinica();
+        String nombreClinica = paciente.getClinica().getNombre();
+        Clinica clinicaAñadir = buscarClinica(nombreClinica);
         listaPacientes.añadirPaciente(paciente);
         clinicaAñadir.añadirPaciente(paciente);
 
