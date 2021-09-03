@@ -17,7 +17,6 @@ import javax.swing.UIManager;
 import vista.FrmAdministrador;
 import vista.FrmLogin;
 import vista.FrmRecuperarDatos;
-import vista.TextPrompt;
 
 /**
  *
@@ -58,6 +57,8 @@ public class CtrlLogin implements Serializable {
                         } else {
                             credenciales.borrarSerial();
                         }
+                        
+                        Datos.usuarioActivo = Datos.usuarios.getGenerico()[i];
 
                         vista.dispose();
                         FrmAdministrador vista = new FrmAdministrador();

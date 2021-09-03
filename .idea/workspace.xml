@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="313665bb-00bd-4df8-ab05-8e1ab8963115" name="Changes" comment="agregando HashTable y modificando HashTableClinica">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/imagenes/pago.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/imagenes/pago2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controlador/CtrlVerPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlador/CtrlVerPaciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controlador/CtrlTablaDePacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlador/CtrlTablaDePacientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistencia/pacientes.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistencia/pacientes.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/FrmDetalles.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/FrmDetalles.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/FrmDetalles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/FrmDetalles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/FrmReservaCita.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/FrmReservaCita.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/FrmReservaCita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/FrmReservaCita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/Ticket.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Ticket.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/Ticket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

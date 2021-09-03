@@ -104,21 +104,6 @@ public class CtrlTablaDePacientes {
             }
         });
 
-//        vista.buscar.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                Paciente[] encontrados;
-//                if (vista.box.getSelectedIndex() == 0) {
-//                    cargarTabla(todosLosPacientes, todosLosPacientes.length);
-//                } else {
-//                    Clinica c = (Clinica) vista.box.getSelectedItem();
-//                    encontrados = c.getPacientes();
-//                    cargarTabla(encontrados, c.getNumPacientes());
-//                }
-//
-//            }
-//
-//        });
         this.vista.btnDetalles.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -152,11 +137,11 @@ public class CtrlTablaDePacientes {
         }
         Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "CLINICA"};
         DefaultTableModel tabla = new DefaultTableModel(datos, column) {
+            @Override
             public boolean isCellEditable(int rowm, int column) {
                 return false;
             }
         };
-//        this.vista.Tabla.setModel(new DefaultTableModel(datos, column));
         this.vista.Tabla.setModel(tabla);
 
     }

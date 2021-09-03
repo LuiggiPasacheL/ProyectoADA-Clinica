@@ -20,8 +20,6 @@ public class ExportarPDF {
             PdfWriter.getInstance(doc, new FileOutputStream(ruta + "/Desktop/ReporteTicket" + Nombre + ".pdf"));
             doc.open();
 
-            //String a= System.getProperty("user.home");
-//            String b = ruta + "/Desktop/ga.png";
             String b = "src/imagenes/ga.png";
 
             Image foto = Image.getInstance(b);
@@ -81,8 +79,6 @@ public class ExportarPDF {
             PdfWriter.getInstance(doc2, new FileOutputStream(ruta + "/Desktop/ReporteTicket" + nombre + ".pdf"));
             doc2.open();
 
-            //String a= System.getProperty("user.home");
-//            String c = ruta + "/Desktop/ga.png";
             String c = "src/imagenes/ga.png";
 
             Image foto = Image.getInstance(c);
@@ -103,8 +99,6 @@ public class ExportarPDF {
             tabla2.addCell("Tipo");
             tabla2.addCell("Número");
 
-            /*
-             */
             try {
                 tabla2.addCell(codigo);
                 tabla2.addCell(nombre);

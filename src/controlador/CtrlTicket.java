@@ -8,6 +8,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
+import javax.swing.JOptionPane;
 import modelo.Paciente;
 import util.ExportarPDF;
 import vista.FrmAdministrador;
@@ -28,13 +29,14 @@ public class CtrlTicket {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 ExportarPDF pdf = new ExportarPDF();
-                vista.dispose();
                 FrmAdministrador fAdministrador = new FrmAdministrador();
                 CtrlAdministrador cAdministrador = new CtrlAdministrador(fAdministrador);
                 pdf.generarPDF(vista.tHospital.getText().toString(), vista.tHora.getText().toString(), 
                         vista.tCodigoRegistro.getText().toString(), vista.txtNombre.getText().toString(),
                         vista.txtDNI.getText().toString());
+                JOptionPane.showMessageDialog(vista, "Operacion exitosa");
                 cAdministrador.iniciar();  
+                vista.dispose();
             }
         });
     }
@@ -55,7 +57,7 @@ public class CtrlTicket {
         vista.txtDNI.setText(modelo.getNumeroDoc());
         vista.tTipoDoc.setText(modelo.getTipo()+":");
         vista.tHora.setText(horaActual);
-        vista.tCodigoRegistro.setText("------");
+        vista.tCodigoRegistro.setText(modelo.getNumeroDoc());
     }
     
     public String calcularHora(){

@@ -39,11 +39,11 @@ public class CtrlRecuperarDatos {
                     for (int i = 0; i < Datos.usuarios.getTamaño(); i++) {
 
                         if (correo.equals(Datos.usuarios.getGenerico()[i].getCorreo())) {
-                            String mensaje = "<b>Adjuntamos sus credenciales</b><br>";
-                            mensaje += "<i><font color=gray>TRABAJADOR: <i>" + Datos.usuarios.getGenerico()[i].getNombre() + " "
+                            String mensaje = "Adjuntamos sus credenciales\n";
+                            mensaje += "TRABAJADOR: " + Datos.usuarios.getGenerico()[i].getNombre() + " "
                                     + Datos.usuarios.getGenerico()[i].getApellidoP() + " "
-                                    + Datos.usuarios.getGenerico()[i].getApellidoM() + "<br>Usuario: " + Datos.usuarios.getGenerico()[i].getUsername() + "<br>Contraseña: "
-                                    + Datos.usuarios.getGenerico()[i].getContrasena() + "</font>";
+                                    + Datos.usuarios.getGenerico()[i].getApellidoM() + "\nUsuario: " + Datos.usuarios.getGenerico()[i].getUsername() + "\nContraseña: "
+                                    + Datos.usuarios.getGenerico()[i].getContrasena();
 
                             Email.enviarEmail(correo, "correo", mensaje);
                             // Thread enviar = new Thread((Runnable) email);
@@ -53,14 +53,14 @@ public class CtrlRecuperarDatos {
                             // FrmRecuperarDatos.setDisponible(true);
                         }
 
-                        if (encontrado) {
-                            JOptionPane.showMessageDialog(null, "Sus credenciales se enviaron a su correo", "Correo enviado", 1);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "El correo no está asociado a ningún trabajador", "No encontrado", 2);
-                        }
-                        vista.dispose();
-
                     }
+
+                    if (encontrado) {
+                        JOptionPane.showMessageDialog(null, "Sus credenciales se enviaron a su correo", "Correo enviado", 1);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El correo no está asociado a ningún trabajador", "No encontrado", 2);
+                    }
+                    vista.dispose();
                 } catch (Exception ex) {
 
                 }

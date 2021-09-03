@@ -15,6 +15,7 @@ public class Datos {
 //    public static ColaPrioridad colaPrioridad = new ColaPrioridad();
     public static HashTableClinica clinicas = new HashTableClinica(10);
     public static Arreglo<Usuario> usuarios = new Arreglo<Usuario>();
+    public static Usuario usuarioActivo = null;
     
     public static void validarDatos(String value, String ReGex, String mensaje) throws Exception{
         Pattern er = Pattern.compile(ReGex);
