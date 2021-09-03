@@ -22,7 +22,9 @@ public class Paciente extends Persona/* implements Edad*/ implements Serializabl
                     String sexo, String correo, String numero, String tipo,
                     String direccion, String celular, Clinica hospital) throws Exception {
      
-        super(codigo, nombre.toUpperCase(), apellidoP.toUpperCase(), apellidoM.toUpperCase(), sexo.toUpperCase(), correo.toUpperCase(), numero.toUpperCase(), tipo);
+        super(codigo, nombre.toUpperCase(), apellidoP.toUpperCase(), 
+                apellidoM.toUpperCase(), sexo.toUpperCase(), correo, 
+                numero, tipo);
         
         this.clinica=hospital;
         this.edad=edad;
@@ -30,11 +32,6 @@ public class Paciente extends Persona/* implements Edad*/ implements Serializabl
         setCelular(celular);
         this.fechaVacunacion = fechaVacunacion;
     }
-    /*
-    public String Edad(String edad){
-        return edad;
-    }
-    */
 
     
     public String getHospital(String hospital){
