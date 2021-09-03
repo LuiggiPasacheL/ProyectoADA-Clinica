@@ -22,14 +22,14 @@ public class App {
         try {
             crearHospitales(); // creando clinicas 
             crearMedicos(); //creando medicos y asignando a hospitales
-            Datos.deserializar();
+//            Datos.deserializar();
             Datos.clinicas.deserializarPacientes();
         } catch (Exception e) {
             System.out.println("El archivo no ha sido encontrado");
         }
-        for (Paciente p : Datos.pacientes) {
-            System.out.println(p.getCodigo());
-        }
+//        for (Paciente p : Datos.pacientes) {
+//            System.out.println(p.getCodigo());
+//        }
         //creando usuarios
         Usuario usuario = new Usuario("19200114", "nick", "paredes", "carranza",
                 "M", "inverttecla@gmail.com", "970385384", "empleado", "123456", "123456", false);
@@ -53,7 +53,7 @@ public class App {
 
     private static void crearMedicos() {
         try {
-//            Object[][] matriz = Excel.cargarExcel("src/general/medicos.csv");//TODO: terminar para agregar medicos
+//            Object[][] matriz = Excel.cargarExcel("src/persistencia/medicos.csv");//TODO: terminar para agregar medicos
             Medico medico1 = new Medico("1", "ADRIANA CAROLINA", "HERNANDEZ", "MONTERROZA", "F",
                     "xio190m@hotmail.co.uk", "28746418", "General");
             Medico medico2 = new Medico("2", "PURIFICACION", "TAPIA", "SILVA", "F",

@@ -53,8 +53,8 @@ public class CtrlReservaCita {
                     //Datos.clinicas.añadirPaciente(nombreClinica, paciente);
                     Object row[] = {paciente.getCodigo(), paciente.getNombre(), paciente.getApellidoP() + " " + paciente.getApellidoM(), paciente.getEdad(), paciente.getSexo(), ""};
                     Datos.data.add(row);
-                    Datos.pacientes.add(paciente);
-                    Datos.serializar();
+//                    Datos.pacientes.add(paciente);
+//                    Datos.serializar();
                     Datos.clinicas.serializarPacientes();
 
                     //  JOptionPane.showMessageDialog(null, "Cita reservada");

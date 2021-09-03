@@ -85,7 +85,7 @@ public class HashTableClinica implements Serializable{
     public void serializarPacientes(){
         //serializar listadepacientes
         try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("src/general/pacientes"));
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("src/persistencia/pacientes"));
             os.writeObject(listaPacientes);
             os.close();
         } catch (Exception ex) {
@@ -96,7 +96,7 @@ public class HashTableClinica implements Serializable{
     public void deserializarPacientes(){
         //usar metodo añadir paciente
         try {
-            ObjectInputStream is = new ObjectInputStream(new FileInputStream("src/general/pacientes"));
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream("src/persistencia/pacientes"));
             Clinica aux = (Clinica) is.readObject();
             Paciente[] pacientes = aux.getPacientes();
             for(Paciente p : pacientes){
@@ -136,7 +136,7 @@ public class HashTableClinica implements Serializable{
         String estado = "vacunado";
 
         String[] datos = {codigo, nombres, apellidos, edad, sexo, estado};
-        Excel.añadirFilaAExcel(datos, "src/general/pacientes.xlsx");
+        Excel.añadirFilaAExcel(datos, "src/persistencia/pacientes.xlsx");
         return true;
     }
 
