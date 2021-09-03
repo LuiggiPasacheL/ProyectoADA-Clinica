@@ -274,7 +274,6 @@ public class Ticket extends javax.swing.JFrame implements Serializable {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        JOptionPane.showMessageDialog(null, "Imprimiendo Ticket");
         this.setVisible(false);
     }//GEN-LAST:event_btnAceptarActionPerformed
 

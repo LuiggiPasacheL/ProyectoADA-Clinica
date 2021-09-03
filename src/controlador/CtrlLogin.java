@@ -36,12 +36,14 @@ public class CtrlLogin implements Serializable {
 
         }
         this.vista = vista;
-        
+
         this.vista.btnAcceder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 credenciales.username = vista.txtUsername.getText();
                 credenciales.debeGuardar = vista.chkRecordar.isSelected();
+
+                boolean encontrado = false;
 
                 if (vista.txtUsername.getText().equals("") || vista.txtPassword.getText().equals("")) {
                     JOptionPane.showMessageDialog(vista, "Ingreso de Datos", "Falta completar campos", 2);
@@ -53,20 +55,22 @@ public class CtrlLogin implements Serializable {
 
                         if (credenciales.debeGuardar) {
                             credenciales.serializar();
-                        }else{
+                        } else {
                             credenciales.borrarSerial();
                         }
-                        
+
                         vista.dispose();
                         FrmAdministrador vista = new FrmAdministrador();
                         CtrlAdministrador controlador = new CtrlAdministrador(vista);
                         controlador.iniciar();
 
                         //     limpiar();
+                        encontrado = true;
                         break;
-                    } else {
-                        JOptionPane.showMessageDialog(vista, "vuelva a intentarlo");
                     }
+                }
+                if (encontrado == false) {
+                    JOptionPane.showMessageDialog(vista, "vuelva a intentarlo");
                 }
 
             }
@@ -79,17 +83,17 @@ public class CtrlLogin implements Serializable {
                 CtrlRecuperarDatos controlador;
                 try {
                     controlador = new CtrlRecuperarDatos(vista);
-                    controlador.iniciar(); 
+                    controlador.iniciar();
                 } catch (Exception ex) {
                     Logger.getLogger(CtrlLogin.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                 
+
             }
         });
     }
-    
-    public void properties(){
-        
+
+    public void properties() {
+
 //        TextPrompt t1 = new TextPrompt("USERNAME",vista.txtUsername);
 //        TextPrompt t2 = new TextPrompt("PASSWORD",vista.txtPassword);
     }
