@@ -9,6 +9,7 @@ import modelo.Paciente;
 import modelo.Persona;
 import vista.FrmAdministrador;
 import vista.FrmInfoLugar;
+import vista.FrmPago;
 import vista.FrmReservaCita;
 import vista.TextPrompt;
 import vista.Ticket;
@@ -106,6 +107,16 @@ public class CtrlReservaCita {
             }
         });
 
+        this.vista.btnPagar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FrmPago formularioPago = new FrmPago();
+                CtrPago controlador = new CtrPago(formularioPago);
+                controlador.iniciar();
+            }
+            
+        });
+        
     }
 
     public void Iniciar() {

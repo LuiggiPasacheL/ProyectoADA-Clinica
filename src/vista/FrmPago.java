@@ -33,12 +33,13 @@ public class FrmPago extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         txtMonto = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblVuelto = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txAmejorOpcion = new javax.swing.JTextArea();
         btnAceptar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        btnAceptar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,10 +79,9 @@ public class FrmPago extends javax.swing.JFrame {
         });
         getContentPane().add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 80, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, 30));
+        lblVuelto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblVuelto.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblVuelto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, 30));
 
         jLabel4.setBackground(new java.awt.Color(0, 51, 102));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -91,6 +91,7 @@ public class FrmPago extends javax.swing.JFrame {
 
         txAmejorOpcion.setBackground(new java.awt.Color(0, 51, 102));
         txAmejorOpcion.setColumns(20);
+        txAmejorOpcion.setForeground(new java.awt.Color(255, 255, 255));
         txAmejorOpcion.setRows(5);
         txAmejorOpcion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jScrollPane1.setViewportView(txAmejorOpcion);
@@ -100,10 +101,15 @@ public class FrmPago extends javax.swing.JFrame {
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Aceptar.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.setBorderPainted(false);
-        getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
+        getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoPago.jpg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 370));
+
+        btnAceptar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Aceptar.png"))); // NOI18N
+        btnAceptar1.setText("Aceptar");
+        btnAceptar1.setBorderPainted(false);
+        getContentPane().add(btnAceptar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,15 +158,16 @@ public class FrmPago extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnAceptar1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel lblVuelto;
     public javax.swing.JTextArea txAmejorOpcion;
     public javax.swing.JTextField txtMonto;
     public javax.swing.JTextField txtPrecio;

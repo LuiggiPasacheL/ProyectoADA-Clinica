@@ -34,7 +34,7 @@ public class App {
         Usuario usuario = new Usuario("19200114", "nick", "paredes", "carranza",
                 "M", "inverttecla@gmail.com", "970385384", "empleado", "123456", "123456", false);
         Usuario usuario2 = new Usuario("19200092", "luiggi", "pasache", "lopera",
-                "M", "luiggip2108@gmail.com", "921810963", "empleado", "1", "1", false);
+                "M", "luiggip2108@gmail.com", "921810963", "empleado", "luiggip2108", "123456", false);
 
         Datos.usuarios.agregar(usuario);
         Datos.usuarios.agregar(usuario2);
