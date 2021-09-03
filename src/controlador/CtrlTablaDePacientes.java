@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import modelo.Clinica;
 import modelo.Paciente;
+import util.ExportarPDF;
 import vista.FrmAdministrador;
 import vista.FrmDetalles;
 import vista.FrmTablaDePacientes;
@@ -118,10 +119,12 @@ public class CtrlTablaDePacientes {
 //            }
 //
 //        });
-
         this.vista.btnDetalles.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (vista.Tabla.getSelectedRow() < 0) {
+                    return;
+                }
                 CtrlFrmDetalles ctrl = new CtrlFrmDetalles(new FrmDetalles());
             }
 
@@ -148,7 +151,14 @@ public class CtrlTablaDePacientes {
             }
         }
         Object[] column = {"CODIGO", "NOMBRES", "APELLIDOS", "EDAD", "SEXO", "CLINICA"};
-        this.vista.Tabla.setModel(new DefaultTableModel(datos, column));
+        DefaultTableModel tabla = new DefaultTableModel(datos, column) {
+            public boolean isCellEditable(int rowm, int column) {
+                return false;
+            }
+        };
+//        this.vista.Tabla.setModel(new DefaultTableModel(datos, column));
+        this.vista.Tabla.setModel(tabla);
+
     }
 
     private void cargarComponentes() {
@@ -170,6 +180,16 @@ public class CtrlTablaDePacientes {
             this.paciente = obtenerPaciente((String) vista.Tabla.getValueAt(vista.Tabla.getSelectedRow(), 0));
             propiedades();
             funcionalidadTextArea();
+            vs.btnAtras.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    Date date = new Date();
+                    ExportarPDF ePDF = new ExportarPDF();
+                    ePDF.generarInforme(paciente.getNombre() + " " + paciente.getApellidoP() + " " + paciente.getApellidoM(), paciente.getEdad(), paciente.getSexo(),
+                            paciente.getCodigo(), paciente.getCorreo(), paciente.getTipo(), paciente.getNumeroDoc(), paciente.getDireccion(),
+                            paciente.getCelular(), String.valueOf(new SimpleDateFormat("dd/MM/yyyy").format(date) + " - " + new SimpleDateFormat("HH:mm:ss").format(date)));
+                }
+            });
         }
 
         private void propiedades() {

@@ -35,7 +35,6 @@ public class FrmTablaDePacientes extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         box = new javax.swing.JComboBox<>();
-        buscar = new javax.swing.JButton();
         txtCodigoPaciente = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -51,10 +50,6 @@ public class FrmTablaDePacientes extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-
-        buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Buscar.png"))); // NOI18N
-        buscar.setText("Buscar");
-        buscar.setBorderPainted(false);
 
         txtCodigoPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,10 +91,8 @@ public class FrmTablaDePacientes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(box, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buscar)
-                        .addGap(18, 18, 18)
+                        .addComponent(box, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
                         .addComponent(btnDetalles)
                         .addGap(18, 18, 18)
                         .addComponent(btnAtras))
@@ -121,7 +114,6 @@ public class FrmTablaDePacientes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCodigoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(buscar)
                     .addComponent(btnAtras)
                     .addComponent(box, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDetalles))
@@ -214,7 +206,6 @@ public class FrmTablaDePacientes extends javax.swing.JFrame {
     public javax.swing.JComboBox<Clinica> box;
     public javax.swing.JButton btnAtras;
     public javax.swing.JButton btnDetalles;
-    public javax.swing.JButton buscar;
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;

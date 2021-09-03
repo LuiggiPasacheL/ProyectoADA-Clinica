@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import modelo.Paciente;
+import util.ExportarPDF;
 import vista.FrmAdministrador;
 import vista.Ticket;
 
@@ -26,10 +27,14 @@ public class CtrlTicket {
         this.vista.btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                ExportarPDF pdf = new ExportarPDF();
                 vista.dispose();
                 FrmAdministrador fAdministrador = new FrmAdministrador();
                 CtrlAdministrador cAdministrador = new CtrlAdministrador(fAdministrador);
-                cAdministrador.iniciar();
+                pdf.generarPDF(vista.tHospital.getText().toString(), vista.tHora.getText().toString(), 
+                        vista.tCodigoRegistro.getText().toString(), vista.txtNombre.getText().toString(),
+                        vista.txtDNI.getText().toString());
+                cAdministrador.iniciar();  
             }
         });
     }
