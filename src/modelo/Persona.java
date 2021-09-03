@@ -32,7 +32,7 @@ public class Persona implements Serializable{
         setApellidoMaterno(apellidoM);
         setApellidoPaterno(apellidoP);
         this.sexo = Sexo.valueOf(sexo);
-        //setCorreo(correo);
+        setCorreo(correo);
         this.codigo = codigo;
         setDni(numeroDoc);
         this.tipo = tipo;
