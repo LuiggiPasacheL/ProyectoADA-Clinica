@@ -103,21 +103,21 @@ public class CtrlTablaDePacientes {
             }
         });
 
-        vista.buscar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Paciente[] encontrados;
-                if (vista.box.getSelectedIndex() == 0) {
-                    cargarTabla(todosLosPacientes, todosLosPacientes.length);
-                } else {
-                    Clinica c = (Clinica) vista.box.getSelectedItem();
-                    encontrados = c.getPacientes();
-                    cargarTabla(encontrados, c.getNumPacientes());
-                }
-
-            }
-
-        });
+//        vista.buscar.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Paciente[] encontrados;
+//                if (vista.box.getSelectedIndex() == 0) {
+//                    cargarTabla(todosLosPacientes, todosLosPacientes.length);
+//                } else {
+//                    Clinica c = (Clinica) vista.box.getSelectedItem();
+//                    encontrados = c.getPacientes();
+//                    cargarTabla(encontrados, c.getNumPacientes());
+//                }
+//
+//            }
+//
+//        });
 
         this.vista.btnDetalles.addActionListener(new ActionListener() {
             @Override

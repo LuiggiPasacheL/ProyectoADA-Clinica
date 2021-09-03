@@ -1,28 +1,20 @@
 package general;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import util.Arreglo;
 import modelo.HashTableClinica;
-import modelo.Paciente;
 import modelo.Usuario;
 
 public class Datos {  
-    public static ArrayList<Object[]> data = new ArrayList<Object[]>();
+//    public static ArrayList<Object[]> data = new ArrayList<Object[]>();
 //    public static ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
     
-    public static Arreglo<Usuario> usuarios = new Arreglo<Usuario>();
 //    public static String[] columnas = new String[]{"Código","Nombres","Apellidos","Edad","sexo","estado"}; //TODO quitar esto de aca
 //    public static ColaPrioridad colaPrioridad = new ColaPrioridad();
     public static HashTableClinica clinicas = new HashTableClinica(10);
+    public static Arreglo<Usuario> usuarios = new Arreglo<Usuario>();
     
     public static void validarDatos(String value, String ReGex, String mensaje) throws Exception{
         Pattern er = Pattern.compile(ReGex);
