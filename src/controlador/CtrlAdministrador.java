@@ -13,10 +13,6 @@ import vista.FrmLogin;
 import vista.FrmReservaCita;
 import vista.FrmTablaDePacientes;
 
-/**
- *
- * @author luigg
- */
 public class CtrlAdministrador {
 
     FrmAdministrador vista;

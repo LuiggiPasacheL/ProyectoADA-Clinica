@@ -24,7 +24,6 @@ public class ColaPrioridad implements Serializable {
                 nuevo.siguiente = aux;
                 primero = nuevo;
                 System.out.println("agregando correctamente");
-
                 cantidad++;
                 return;
             }

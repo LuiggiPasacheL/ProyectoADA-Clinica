@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 public class Persona implements Serializable{
 
-    //abstract
     enum Sexo {
         M("M"), F("F");
 

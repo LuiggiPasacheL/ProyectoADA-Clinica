@@ -16,10 +16,6 @@ import util.Email;
 import vista.FrmRecuperarDatos;
 import vista.TextPrompt;
 
-/**
- *
- * @author nick paredes
- */
 public class CtrlRecuperarDatos {
 
     FrmRecuperarDatos vista;
@@ -46,11 +42,9 @@ public class CtrlRecuperarDatos {
                                     + Datos.usuarios.getGenerico()[i].getContrasena();
 
                             Email.enviarEmail(correo, "correo", mensaje);
-                            // Thread enviar = new Thread((Runnable) email);
-                            //   enviar.start();
+
                             encontrado = true;
 
-                            // FrmRecuperarDatos.setDisponible(true);
                         }
 
                     }
@@ -77,14 +71,6 @@ public class CtrlRecuperarDatos {
         vista.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         TextPrompt prueba2 = new TextPrompt("Digite el coorreo electrónico de recuperación", vista.txtRecuperar);
 
-        /*
-        vista.addWindowListener(new WindowAdapter(){
-            @Override
-            public void windowClosing(WindowEvent e){
-                //FrmRecuperarDatos.setDisponible(true);
-            }
-        });
-         */
     }
 
     public void iniciar() {

@@ -30,9 +30,7 @@ public class CtrPago {
                 precio = Double.parseDouble(vista.txtPrecio.getText());
                 monto = Double.parseDouble(vista.txtMonto.getText());                
                 pedir(monto, precio, vista);
-                
             }
-            
         });
     } 
     

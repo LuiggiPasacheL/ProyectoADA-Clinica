@@ -48,24 +48,14 @@ public class CtrlReservaCita {
                             (Clinica) vista.CboClinicas.getSelectedItem()
                     );
 
-//                    Datos.colaPrioridad.agregar(paciente, Integer.parseInt(vista.txtEdad.getText()));
                     Datos.clinicas.añadirPaciente(paciente);
 
-                    //Datos.clinicas.añadirPaciente(nombreClinica, paciente);
-//                    Object row[] = {paciente.getCodigo(), paciente.getNombre(), paciente.getApellidoP() + " " + paciente.getApellidoM(), paciente.getEdad(), paciente.getSexo(), ""};
-//                    Datos.data.add(row);
-//                    Datos.pacientes.add(paciente);
-//                    Datos.serializar();
                     Datos.clinicas.serializarPacientes();
 
-                    //  JOptionPane.showMessageDialog(null, "Cita reservada");
                     vista.dispose();
                     Ticket ticket = new Ticket();
                     CtrlTicket cTicket = new CtrlTicket(paciente, paciente.getClinica().getNombre(), ticket);
                     cTicket.iniciar();
-//                    FrmAdministrador fAdministrador = new FrmAdministrador();
-//                    CtrlAdministrador cAdministrador = new CtrlAdministrador(fAdministrador);
-//                    cAdministrador.iniciar();
 
                 } catch (Exception ex) {
                     ex.printStackTrace();

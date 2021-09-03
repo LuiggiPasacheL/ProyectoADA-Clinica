@@ -11,10 +11,7 @@ import modelo.Clinica;
 import vista.FrmInfoLugar;
 import vista.FrmReservaCita;
 
-/**
- *
- * @author luigg
- */
+
 class CtrlInfoLugar {
     FrmInfoLugar vista;
     Clinica modelo;
@@ -22,7 +19,6 @@ class CtrlInfoLugar {
     public CtrlInfoLugar(Clinica modelo, FrmInfoLugar vista, FrmReservaCita vistaAnterior) {
         this.vista = vista;
         this.modelo = modelo;
-        //agregar acciones aqui
         
         vista.btnAceptar.addActionListener(new ActionListener() {
             @Override
@@ -40,7 +36,6 @@ class CtrlInfoLugar {
     }
     
     public void mostrarDatos(){
-        //TODO terminar de mostrar datos relevantes terminar
         vista.lblNombreClinica.setText("<html><h1>"+modelo.getNombre()+"</h1></html>");
         vista.jlbDocDis.setText(String.valueOf(modelo.getNumMedicos()));
         vista.jlbPacientesTotal.setText(String.valueOf(modelo.getNumPacientes()));

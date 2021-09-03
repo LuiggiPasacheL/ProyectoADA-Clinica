@@ -18,10 +18,6 @@ import vista.FrmAdministrador;
 import vista.FrmLogin;
 import vista.FrmRecuperarDatos;
 
-/**
- *
- * @author luigg
- */
 public class CtrlLogin implements Serializable {
 
     FrmLogin vista;
@@ -52,20 +48,19 @@ public class CtrlLogin implements Serializable {
                     if (Datos.usuarios.getGenerico()[i].ingresar(vista.txtUsername.getText(),
                             vista.txtPassword.getText())) {
 
+                        Datos.usuarioActivo = Datos.usuarios.getGenerico()[i];
+
                         if (credenciales.debeGuardar) {
                             credenciales.serializar();
                         } else {
                             credenciales.borrarSerial();
                         }
-                        
-                        Datos.usuarioActivo = Datos.usuarios.getGenerico()[i];
 
                         vista.dispose();
                         FrmAdministrador vista = new FrmAdministrador();
                         CtrlAdministrador controlador = new CtrlAdministrador(vista);
                         controlador.iniciar();
 
-                        //     limpiar();
                         encontrado = true;
                         break;
                     }
@@ -73,7 +68,6 @@ public class CtrlLogin implements Serializable {
                 if (encontrado == false) {
                     JOptionPane.showMessageDialog(vista, "vuelva a intentarlo");
                 }
-
             }
         });
 
@@ -93,17 +87,10 @@ public class CtrlLogin implements Serializable {
         });
     }
 
-    public void properties() {
-
-//        TextPrompt t1 = new TextPrompt("USERNAME",vista.txtUsername);
-//        TextPrompt t2 = new TextPrompt("PASSWORD",vista.txtPassword);
-    }
-
     public void iniciar() {
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
         credenciales.deserializar();
-        properties();
         if (credenciales.debeGuardar) {
             this.vista.txtUsername.setText(credenciales.username);
             this.vista.chkRecordar.setSelected(credenciales.debeGuardar);

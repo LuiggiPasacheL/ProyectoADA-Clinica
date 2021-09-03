@@ -128,7 +128,7 @@ public class HashTableClinica implements Serializable{
         listaPacientes.añadirPaciente(paciente);
         clinicaAñadir.añadirPaciente(paciente);
 
-        String codigo = paciente.getNumeroDoc(); // = "codigo";
+        String codigo = paciente.getNumeroDoc();
         String nombres = paciente.getNombre();
         String apellidos = paciente.getApellidoP() + " " + paciente.getApellidoM();
         String edad = String.valueOf(paciente.getEdad());

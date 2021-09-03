@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import controlador.CtrlLogin;
 import modelo.*;
 import vista.FrmLogin;
 import general.Datos;
 
-/**
- *
- * @author luigg
- */
+
 public class App {
 
     /**
@@ -20,17 +12,13 @@ public class App {
      */
     public static void main(String[] args) throws Exception {
         try {
-            crearHospitales(); // creando clinicas 
-            crearMedicos(); //creando medicos y asignando a hospitales
-//            Datos.deserializar();
+            crearHospitales();
+            crearMedicos(); 
             Datos.clinicas.deserializarPacientes();
         } catch (Exception e) {
             System.out.println("El archivo no ha sido encontrado");
         }
-//        for (Paciente p : Datos.pacientes) {
-//            System.out.println(p.getCodigo());
-//        }
-        //creando usuarios
+        
         Usuario usuario = new Usuario("19200114", "nick", "paredes", "carranza",
                 "M", "inverttecla@gmail.com", "970385384", "empleado", "123456", "123456", false);
         Usuario usuario2 = new Usuario("19200092", "luiggi", "pasache", "lopera",
@@ -44,18 +32,10 @@ public class App {
         FrmLogin vista = new FrmLogin();
         CtrlLogin login = new CtrlLogin(vista);
         login.iniciar();
-
-//        FrmTablaDePacientes fTablaDePacientes = new FrmTablaDePacientes();
-//        CtrlVerPaciente cVerPaciente = new CtrlVerPaciente(fTablaDePacientes);
-//        cVerPaciente.Iniciar();
-//        FrmLugares vistaLug = new FrmLugares();
-//        CtrlLugares controladorLug = new CtrlLugares(vistaLug);
-//        controladorLug.Iniciar();
     }
 
     private static void crearMedicos() {
         try {
-//            Object[][] matriz = Excel.cargarExcel("src/persistencia/medicos.csv");//TODO: terminar para agregar medicos
             Medico medico1 = new Medico("1", "ADRIANA CAROLINA", "HERNANDEZ", "MONTERROZA", "F",
                     "xio190m@hotmail.co.uk", "28746418", "General");
             Medico medico2 = new Medico("2", "PURIFICACION", "TAPIA", "SILVA", "F",
@@ -68,7 +48,6 @@ public class App {
                     "54dg1gbflz@lycos.co.uk", "27755627", "Cardiología");
             Medico medico6 = new Medico("6", "ENRIC", "TAPIA", "MENENDEZ", "M",
                     "9wsjrlk970@netscape.net", "84566452", "Cardiología");
-
             Medico medico7 = new Medico("7", "IGNACIO", "PACHECO", "GRAU", "M",
                     "jtsjwtyjk@mail.com", "84566452", "Cardiología");
             Medico medico8 = new Medico("7", "IGNACIO", "PACHECO", "GRAU", "M",
