@@ -35,10 +35,12 @@ public class App {
                 "M", "inverttecla@gmail.com", "970385384", "empleado", "123456", "123456", false);
         Usuario usuario2 = new Usuario("19200092", "luiggi", "pasache", "lopera",
                 "M", "luiggip2108@gmail.com", "921810963", "empleado", "123456", "luiggip2108", false);
-
+        Usuario usuario3 = new Usuario("19200095", "luis", "Quispe", "Inquil",
+                "M", "luis@gmail.com", "983442995", "empleado", "123456", "luis", false);
         Datos.usuarios.agregar(usuario);
         Datos.usuarios.agregar(usuario2);
-
+        Datos.usuarios.agregar(usuario3);
+        
         FrmLogin vista = new FrmLogin();
         CtrlLogin login = new CtrlLogin(vista);
         login.iniciar();

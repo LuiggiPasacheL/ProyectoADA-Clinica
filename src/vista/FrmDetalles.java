@@ -77,8 +77,8 @@ public class FrmDetalles extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnAtras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Atras.png"))); // NOI18N
-        btnAtras.setText("Regresar");
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imprimir.png"))); // NOI18N
+        btnAtras.setText("Imprimir");
         btnAtras.setAutoscrolls(true);
         btnAtras.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAtras.setBorderPainted(false);
